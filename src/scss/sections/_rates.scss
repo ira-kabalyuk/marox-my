@@ -1,0 +1,727 @@
+.section {
+
+	&_white {
+
+		.rate-tabs {
+			&__list {
+
+				li {
+					&.active {
+						a {
+							color: $black;
+						}
+					}
+				}
+			}
+
+			&_border {
+				border-bottom: 1px solid $light-grey;
+				margin-bottom: 50px;
+			}
+		}
+	}
+}
+
+.rate {
+	padding-top: 72px;
+	padding-bottom: 72px;
+
+	&__descr {
+		font: {
+			family: $gilroy;
+			size: 24px;
+			weight: 300;
+		}
+		line-height: 40px;
+		color: $white;
+		margin-bottom: 0;
+		margin-top: 24px;
+	}
+
+	&__includes {
+		.o-list {
+			li {
+				font: {
+					family: $gilroy;
+					size: 18px;
+					weight: 300;
+				}
+				line-height: 32px;
+				margin-bottom: 8px;
+			}
+		}
+	}
+
+	&__lead {
+		font: {
+			family: $gilroy;
+			size: 18px;
+			weight: 900;
+		}
+		line-height: 24px;
+		color: $white;
+		margin-bottom: 0;
+	}
+
+
+	// Rates
+	&s {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		padding: 104px 0 80px;
+
+		&__item {
+			flex: 1 1 auto;
+			width: 100%;
+			background: {
+				color: $white;
+			}
+			box-shadow: 0 0 18px rgba($black, .41);
+			text-align: center;
+			position: relative;
+
+			&.is-popular {
+				z-index: 2;
+
+				&::before {
+					content: '\f005';
+					display: block;
+					width: 104px;
+					height: 104px;
+					padding-top: 16px;
+					border-radius: 50%;
+					background-color: $blue;
+
+					font: {
+						family: $fa;
+						size: 48px;
+					}
+					line-height: 1;
+					color: $white;
+					text-align: center;
+
+					position: absolute;
+					left: -32px;
+					top: -40px;
+					z-index: 2;
+				}
+
+				&::after {
+					content: 'популярный';
+					display: inline-block;
+					font: {
+						family: $gilroy;
+						size: 10px;
+						weight: 900;
+					}
+					line-height: 1;
+					color: $white;
+
+					position: absolute;
+					left: -9px;
+					top: 32px;
+					z-index: 2;
+				}
+
+				.rates__overlay {
+					outline: 4px solid $blue;
+				}
+			}
+
+			p {
+				font-family: $gilroy;
+				z-index: 2;
+				position: relative;
+				@include trans;
+			}
+
+			&:hover {
+				&.is-popular {
+					&::before {
+						box-shadow: 0 0 8px rgba($black, 0.2);
+					}
+					.rates__overlay {
+						outline: 4px solid rgba($blue, 0);
+					}
+				}
+				.rates__overlay {
+					transform: scaleY(1.18);
+					background-color: $blue;
+				}
+				.rates__type {
+					@include gradient($white, $white, 0%, 100%, to right);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+				.rates__content {
+					transform: translateY(-32px);
+				}
+				.rates__btn {
+					opacity: 1;
+					transform: translateY(0);
+				}
+				p {
+					color: $white;
+				}
+
+				ul {
+					li {
+						color: $white;
+					}
+				}
+			}
+		}
+
+		&__overlay {
+			width: 100%;
+			height: 100%;
+			background: {
+				color: $white;
+			}
+
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 0;
+			@include trans;
+		}
+
+		&__content {
+			width: 100%;
+			height: 100%;
+			padding: 48px;
+			position: relative;
+			z-index: 1;
+			overflow: hidden;
+			transform: translateY(0);
+			@include trans;
+
+			&::before {
+				content: '';
+				display: block;
+				width: 164px;
+				height: 104px;
+				background: {
+					repeat: no-repeat;
+					position: center;
+					image: url(../img/rates-bg.png);
+					size: contain;
+				}
+
+				position: absolute;
+				right: 8px;
+				top: 0;
+				z-index: 0;
+			}
+		}
+
+		&__type {
+			display: block;
+			font: {
+				size: 36px;
+				weight: 900;
+			}
+			min-height: 80px;
+			letter-spacing: 1px;
+			line-height: 40px;
+			color: $blue;
+			text-transform: uppercase;
+			margin-bottom: 24px;
+			@include gradient();
+			@include trans;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		&__price {
+			font: {
+				size: 24px;
+				weight: 300;
+			}
+			margin-bottom: 40px;
+		}
+
+		&__sum {
+			font-size: 48px;
+			font-weight: 900;
+		}
+
+		&__descr {
+			font: {
+				size: 16px;
+				weight: 900;
+			}
+			line-height: 24px;
+			margin-bottom: 48px;
+			min-height: 100px;
+		}
+
+		&__ad {
+			font: {
+				size: 18px;
+				weight: 900;
+			}
+			line-height: 1;
+			color: $green;
+			margin-bottom: 0;
+		}
+
+		&__btn {
+			position: absolute;
+			bottom: -24px;
+			left: 50%;
+			margin-left: -140px;
+			color: $black;
+			opacity: 0;
+			transform: translateY(10px);
+			@include trans;
+			z-index: 2;
+		}
+
+		&__link {
+			font-family: "Gilroy", sans-serif;	
+			display: block;
+			font-size: 14px;
+			color: $black;
+			text-decoration: underline;
+			margin-top: 50px;
+			font-weight: 700;
+
+			&:hover {
+				color: $black;
+				text-decoration: none;
+			}
+		}
+	}
+
+
+	// Tabs
+	&-tabs {
+		&__list {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			margin-bottom: 40px;
+
+			li {
+				margin-right: 72px;
+				&.active {
+					a {
+						color: $white;
+						border-color: rgba($blue, 0);
+					}
+				}
+			}
+
+			a {
+				font: {
+					family: $gilroy;
+					size: 32px;
+					weight: 900;
+				}
+				color: $blue;
+				line-height: 40px;
+				border-bottom: 1px dashed $blue;
+				@include trans;
+
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+					border-color: rgba($blue, 0);
+				}
+			}
+		}
+	}
+}
+
+.rate-horisontal {
+
+	.rates {
+		flex-wrap: wrap;
+
+	&__item {
+
+			&:hover {
+				.rates__overlay {
+					transform: scaleX(1.03);
+					background-color: $blue;
+				}
+				.rates__type {
+					@include gradient($white, $white, 0%, 100%, to right);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+				.rates__content {
+					transform: translateX(0);
+				}
+				
+			}
+
+	}
+
+
+
+		&__content {
+			display: flex;
+			align-items: center;
+			padding: 60px;
+
+				&:before {
+				right: 50%;
+				margin-right: -82px;
+				top: 0;
+			}
+		}
+
+		&__content-wrap {
+			text-align: left;
+			
+			&:nth-child(1) {
+				width: 35%;
+			}
+
+				&:nth-child(2) {
+				width: 50%;		
+				padding: 0 15px;
+			}
+
+				&:nth-child(3) {
+				width: 15%;
+				text-align: right;
+			}
+
+		
+
+		}
+
+		&__ad {
+			color: $blue;
+			text-decoration: underline;
+			font-size: 16px;
+			display: inline-block;
+
+			&:after {
+				content:"";
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 4.5px 0 4.5px 5px;
+				border-color: transparent transparent transparent $blue;
+				display: inline-block;
+				margin-left: 3px;
+			}
+
+		}
+		&__type {
+				font-size: 32px;
+				min-height: auto;
+		}
+
+		&__sum {
+				font-size: 32px;
+				
+		}
+		
+		&__price {
+			margin-bottom: 0;
+		}
+
+		&__descr {
+			margin-bottom: 0;
+			min-height: auto;
+
+			li {
+				font-size: 18px;
+				line-height: 1.5em;
+				margin-bottom: 7px;
+
+				&:before {
+					content: "-";
+					display: inline-block;
+					margin-right: 5px;
+				}
+			}
+		}
+
+			&__overlay {			
+
+				&:before {
+					top: 32px;
+					right: 50%;
+					margin-right: 82px;
+				}
+			}
+
+			&__btn {
+				position: static;
+				min-width: 100%;
+
+				&:after {
+					content:"";
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 4.5px 0 4.5px 5px;
+					border-color: transparent transparent transparent #000;
+					display: inline-block;
+					margin-left: 3px;
+				}
+			}
+
+		}
+
+	}
+
+
+// Media
+@media ($mw-1680) {
+	.rates {
+		&__content {
+			padding: 24px;
+			&::before {
+				top: 0;
+			}
+		}
+
+		&__type {
+			font-size: 32px;
+		}
+
+		&__sum {
+			font-size: 40px;
+		}
+
+		&__btn {
+			padding: 12px 24px;
+		}
+	}
+}
+@media ($mw-1200) {
+	.rates {
+		&__sum {
+			font-size: 32px;
+		}
+		&__descr {
+			min-height: 145px;
+		}	
+	}
+
+	.rate-horisontal {
+
+		.rates {
+			&__descr {
+				min-height: auto;
+			}
+		}
+	}
+}
+@media ($mw-1024) {
+	.rate {
+		&__includes {
+			.flex {
+				flex-wrap: wrap;
+			}
+			.col-xs-4 {
+				width: 100%;
+			}
+		}
+
+		&s {
+			flex-wrap: wrap;
+			&__item {
+				width: 50%;
+				flex: 0 0 auto;
+
+				&:hover {
+					z-index: 3;
+				}
+			}
+		}
+	}
+
+	.rate-horisontal {
+
+		.rates{
+			&__item {
+				width: 100%;
+			}
+
+			&__content {
+				padding: 24px;
+			}
+			&__descr {
+				li {
+					font-size: 16px;
+				}
+			}
+			&__type {
+				font-size: 24px;
+			}
+
+			&__sum {
+				font-size: 20px;
+				.text-bold {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+}
+@media ($mw-768) {
+	.rates {
+		padding-top: 80px;
+		&__item {
+			&.is-popular {
+				&::before {
+					width: 80px;
+					height: 80px;
+					font-size: 32px;
+					left: -16px;
+				}
+				&::after {
+					left: -4px;
+					top: 12px;
+				}
+			}
+
+			&:hover {
+				z-index: auto;
+				.rates__content {
+					transform: none;
+				}
+
+				p {
+					color: $black;
+				}
+
+				.rates__type {
+					@include gradient();
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+
+				.rates__ad {
+					color: $green;
+				}
+
+				.rates__overlay {
+					transform: none;
+					background-color: $white;
+				}
+
+				&.is-popular {
+					z-index: 2;
+					.rates__overlay {
+						outline: 4px solid $blue;
+					}
+				}
+			}
+		}
+
+		&__content {
+			height: auto;
+		}
+
+		&__btn {
+			width: 100%;
+			max-width: 240px;
+			min-width: auto;
+			position: relative;
+			margin-left: 0;
+			margin-bottom: 32px;
+			left: 0;
+			bottom: 0;
+			transform: translateY(0);
+			opacity: 1;
+		}
+
+		&__type {
+			min-height: auto;
+		}
+
+		&__descr {
+			min-height: auto;
+		}
+	}
+	.rate-horisontal {
+
+		.rates{
+
+			&__content {
+				flex-direction: column;
+			}
+			&__content-wrap {
+				&:nth-child(1), 
+				&:nth-child(2),
+				&:nth-child(3) {
+					width: 100%;
+				}
+
+				&:nth-child(2) {
+					padding: 15px 0;
+				}
+			}
+
+			&__ad {
+				display: none;
+			}
+
+			&__btn {
+				min-width: 200px;
+				max-width: 200px;
+			}
+		
+		}
+	}
+}
+@media ($mw-768) {
+	.rate-tabs {
+		&__list {
+			margin-bottom: 32px;
+			li {
+				margin-right: 24px;
+			}
+			a {
+				font-size: 20px;
+				line-height: 24px;
+			}
+		}
+	}
+
+	.rates {
+		&__item {
+			width: 100%;
+			margin-bottom: 48px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.rate {
+		&__descr {
+			font-size: 18px;
+			line-height: 32px;
+		}
+	}
+
+	.rate-horisontal {
+
+		.rates {
+
+			&__item {
+
+				&:hover {
+
+					p {
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}

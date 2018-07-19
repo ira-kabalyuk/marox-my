@@ -1,0 +1,281 @@
+extends ../template.pug
+
+block title
+	- title = pages.main1.title
+	
+block breadcrumbs
+	- breadcrumbsCat = pages.main1.category
+	- breadcrumbsCurrent = pages.main1.title
+
+//- Top Section
+block sectionTitles
+	- h1           = pages.main1.h1
+	- subTitle     = pages.main1.subTitle
+	- sectionClass = pages.main1.form
+	
+block topSectionContent
+
+	.container
+		.row
+			.topSection__descr-row
+				p.text-gradient #[a(href='https://marox.digital/razrabotka-sayta.html').text-gradient-link Разрабатываем,] #[a(href='https://marox.digital/seo-prodvizhenie-sajta.html').text-gradient-link продвигаем] и #[a(href='').text-gradient-link поддерживаем] интернет-проекты. Настраиваем и ведём #[a(href='https://marox.digital/kontekstnaya-reklama.html').text-gradient-link рекламные кампании]. Делаем качественное #[a(href='https://marox.digital/seo-prodvizhenie-sajta.html').text-gradient-link SEO]. Интегрируем системы учёта, #[a(href='https://marox.digital/crm.html').text-gradient-link CRM] и внешние сервисы. #[a(href='').text-gradient-link Анализируем эффективность вложений в рекламу], увеличиваем ROI, повышаем эффективность отделов продаж, работаем на результат.
+					
+			ul.top-section__list.main-top-section__list
+				li.top-section__item
+					button.btn.btn_icon.form-group__btn Отправить заявку
+				li.top-section__item.top-section__item_1
+					.top-section-list__text-wrap
+						a(href="https://marox.digital/projects/").top-section-list__title.text-black.text-gradient Реализованные проекты
+						p.top-section-list__text Посмотрите наши кейсы
+
+block content
+	//- Difference Section
+	section.difference.section
+		.container
+			h2.deco-line
+				| С какой проблемой сталкивались все наши клиенты, выбирая, кому доверить задачи интернет-маркетинга?
+			.sc
+				.sc__aside
+					.email-block.email-block_dark
+						p Проблема в том, что 98% компаний отказываются нести ответственность за результаты. Разводится бурная (в глазах клиента) деятельность, которая не заканчивается повышением продаж, увеличением количества заявок, повышением прибыли. А значит, не достигаются и цели бизнеса.
+				.sc__content
+					.difference-table.flex
+						.difference-table__row
+							.difference-table__col_first
+								.difference-table__head
+									p 98% SEO-компаний 
+							.difference-table__col_first
+								.difference-table__head
+									p Фрилансеры
+							.difference-table__col
+								.difference-table__item.wrong
+									p В #[span.text-black интернет агентствах ] один специалист занимается продвижением 15-25-50 проектов одновременно. О глубоком изучении бизнеса или внедрении в потребности каждого клиента не может быть и речи.<br>
+									p С проектом работают разные сотрудники, которые сменяют друг друга в процессе, а не команда, которая неизменна от начала до конца работы.<br> 
+									p Эффективное взаимодействие отсутствует, процессы затягиваются, каждый хочет побыстрей сдать работу, нет заинтересованности в результатах.
+							.difference-table__col
+								.difference-table__item.wrong
+									p #[span.text-black Работая с фрилансерами], клиент рискует на любом этапе лишиться своего исполнителя и потерять потраченное время и деньги. Результаты работы подчиняются ответственности одного человека и очень зависят от внешних обстоятельств.
+									p Как часто приходятся слышать клиентам, о том, что фрилансер заболел, уехал заграницу, временно недоступен и т.п. 
+									p Цель большинства фрилансеров сдать проект, получить деньги и скорее взять новый. Корректировать, исправлять, доделывать, если кто-то и берется, то делается это лишь бы как, ведь это уже невыгодно.
+	//- /Difference Section	
+
+	//- Info Section-2
+
+	section.section.info-section.main-info-section
+		.container
+			.main-info-block
+				h2.main-info-title
+					span Мы нашли и отработали другой формат 
+				.main-info-text
+					.main-info-wrap
+						p.info-section__p Не играть в корпорацию или агентство. Мы запустили студию в новом формате, где у каждого клиента есть собственная команда, которая заинтересована в его успехе.<br>
+							span.text-16 Которая вникает в детали бизнес-процессов. Которая показывает РЕЗУЛЬТАТЫ. При этом уровень #[a(href='https://marox.digital/razrabotka-sayta.html') услуг], технологичность и эффективность  #[a(href='https://marox.digital/razrabotka-sayta.html') управления процессами] сохраняется на должном высоком уровне.
+			.main-content-block
+				p.info-section__p.text-black Наша команда может быть отдельным рекламным отделом в вашей организации, а может быть интегрирована в уже существующую структуру и тесно взаимодействовать с вашими специалистами для эффективного достижения общих целей и задач. 
+				.main-content-img-wrap
+					img(src="img/project-1.jpg", alt="")
+
+
+
+	//- Case Section
+	section.case-section.section
+		.container
+			h2.deco-line
+				| Детально про наши услуги
+			.case-block
+				.case-block__col-50
+					a(href="").case-link
+						span.text-black.text-24.case-title Как мы делаем сайты						
+						.img-holder.img-holder_1
+							img(src="img/post-icon-1.svg", alt="")
+						.img-holder.img-holder_1.hover
+							img(src="img/post-icon-1-hover.svg", alt="")
+				.case-block__col-50
+					a(href="").case-link
+						span.text-black.text-24.case-title Наш подход к Поисковому маркетингу
+						.img-holder.img-holder_6
+							img(src="img/post-icon-6.svg", alt="")
+						.img-holder.img-holder_6.hover
+							img(src="img/post-icon-6-hover.svg", alt="")
+				.case-block__col-33
+					a(href="").case-link
+						span.text-black.text-24.case-title Как настраиваем рекламные Кампании
+						.img-holder.img-holder_3
+							img(src="img/post-icon-3.svg", alt="")
+						.img-holder.img-holder_3.hover
+							img(src="img/post-icon-3-hover.svg", alt="")
+				.case-block__col-33
+					a(href="").case-link
+						span.text-black.text-24.case-title Наш подход в разработке CRM
+						.img-holder.img-holder_5
+							img(src="img/post-icon-5.svg", alt="")
+						.img-holder.img-holder_5.hover
+							img(src="img/post-icon-5-hover.svg", alt="")
+				.case-block__col-33
+					a(href="").case-link
+						span.text-black.text-24.case-title Как повышаем эффективность отдела продаж
+						.img-holder.img-holder_4
+							img(src="img/post-icon-4.svg", alt="")
+						.img-holder.img-holder_4.hover
+							img(src="img/post-icon-4-hover.svg", alt="")
+				
+	//- /Case Section
+
+	//- Info Section
+	section.benefits-section.info-section
+		.container
+			h2.deco-line Работая с нами, вы получите:
+			
+	//- /Info Section
+
+	//- Benefits Section
+	section.benefits
+		.border-block.border-block_no-bottom
+			.container
+				.row.flex
+					each item in pages.main1.benefits
+						.col-sm-4.benefits__item
+							h3.benefits__title #{item.title}
+							p.benefits__content #{item.content}
+	//- /Benefits Section
+
+	//-Work system
+
+	section.work-system
+		.container
+			h1.top-section__title Мы построили систему сотрудничества так, чтобы ваш результат не зависел от внешних обстоятельств
+			ul.crm-top-block__list
+				each item in pages.main1.topList
+					li(class="crm-top-block__item " + item.class)
+						p.crm-top-block__title #{item.title}
+						p.crm-top-block__text #{item.p}
+
+
+	//-/Work system
+
+	//- feedback
+
+	section.feedback-section
+		.container
+			h2.deco-line.deco-line_short Отзывы
+			ul.feedback__list
+				li.feedback__item
+					.photo-wrap
+						img(src="img/av-17.jpg", alt="")
+					p.feedback-name Владимир
+						span.feedback-position Директор Компании "Ковчег"
+					p.feedback-text Хочу от лица своей компании отметить профессионализм команды Marox.Digital. С моей точки зрения особо заслуживает внимания то, что ребята способны предлагать дельные вещи и реально работающие инструменты. Они способны увидеть задачу шире и глубже чем Вы сами, и отлично реализуют эффективные решения. Для всех потенциальных заказчиков Marox.Digital нужно быть готовым к тому, что Вам будут предлагать решения, опережающие Ваше восприятие. Если доверите – получите отличный результат.
+				li.feedback__item
+					.photo-wrap
+						img(src="img/av-18.jpg", alt="")
+					p.feedback-name Наталья
+						span.feedback-position Директор компании "Салонный Маркетинг"
+					p.feedback-text Единственная компания, которая перед работой над ТЗ сайта тщательно проработала со мной бизнес-цели моей компании. Мы проработали все цели и под них выстраивали работу над сайтом и продвижением. Все остальные - это рисовальщики картинок. Вот такое мое мнение.
+				li.feedback__item
+					.photo-wrap
+						img(src="img/av-6.jpg", alt="")
+					p.feedback-name Наталья
+						span.feedback-position Директор компании "Салонный Маркетинг"
+					p.feedback-text Единственная компания, которая перед работой над ТЗ сайта тщательно проработала со мной бизнес-цели моей компании. Мы проработали все цели и под них выстраивали работу над сайтом и продвижением. Все остальные - это рисовальщики картинок. Вот такое мое мнение.
+				
+
+	//-/feedback
+
+	
+
+	//-working Section
+
+	section.info-section.main-info-section.we-working-section
+		.container
+			h2.deco-line.deco-line_short
+				| C кем мы не работаем?
+			p.info-section__p.center-text.tl Вы избирательно относитесь к выбору партнеров и подрядчиков в своем бизнесе? Мы ценим эффективную работу на результат и хотим видеть реальные положительные изменения. Поэтому нашими клиентами становятся только те люди и компании, с которыми мы совпадаем в этом отношении.
+			p.info-section__p.list-title Мы давно отошли от работы с компаниями, в которых
+			ul.we-working__list
+				li.we-working__item
+					p.we-working-title Заголовок
+					p.working-text владелец бизнеса не готов уделять внимание и время, чтобы сделать наше сотрудничество максимально эффективным. Мы точно не будем отвлекать вас пустыми разговорами и бессмысленными письмами, но изредка вам потребуется принять участие в работе над проектом;
+				li.we-working__item
+					p.we-working-title Заголовок
+					p.working-text понимание маркетинга и отношение к нему прямо противоположно нашему. Мы уверены, что маркетинг – это жизненно необходимое для бизнеса направление, и в интересах компании инвестировать в него время и средства. Если маркетинг финансируется по остаточному принципу и понимание, для чего он нужен, отсутствует, тогда нам не по пути; 
+				li.we-working__item
+					p.we-working-title Заголовок
+					p.working-text хотят получить результат «уже вчера и за дешево». Есть такая категория людей, которой кажется, что показатели продаж должны расти уже во время нашей первой встречи и что они переплатили, даже еще не инвестировав ни копейки. Для достижения и удержания классных результатов требуется длительная планомерная совместная работа. Зато результат стоит усилий!
+				li.we-working__item
+					p.we-working-title Заголовок
+					p.working-text важен процесс, а не результаты. Идеи бурлят, деятельность кипит, звонки, письма, встречи –  людям важно быть в центре событий, что-то делать, срочно что-то решать, но планомерно работать, занимаясь приземленными делами, им не интересно. Мы же измеряем успешность своей работы исключительно результатами;
+				li.we-working__item
+					p.we-working-title Заголовок
+					p.working-text Проводим планерки внутри и срезы текущего состояния проекта с клиентами
+				li.we-working__item
+					p.we-working-title Заголовок
+					p.working-text предлагают рынку низкое качество сервиса, плохой продукт или услугу. Есть случаи, когда маркетинг может помочь получить заказ единожды и на этом все. Бизнес, задачи которого – обмануть клиента, «втюхать» ему низкое качество – для нас безперспективен и неинтересен;
+				li.we-working__item
+					p.we-working-title Заголовок
+					p.working-text бюджет на маркетинг менее 250000 грн в год или 20 000 грн в месяц.
+
+
+	//-/working Section
+ 
+	
+	section.main-blog-section
+		.container
+			.main-blog-section
+				h2.deco-line.deco-line_short.text-black Наш блог
+				.main-blog-wrap
+					p.text-black.text-20 Мы с удовольствием делимся своим опытом в интернет-маркетинге и рассказываем об эффективных инструментах и интересных кейсах в своем блоге. Читайте, анализируйте и действуйте! 
+					ul.blog-list-sm
+						each item in pages.blog.smBlogItem
+							li.blog-list-sm__item
+								a(href="")
+									.blog-list-sm__img-wrap
+										img(src=`${item.img}`,alt="")
+									.blog-list-sm__content-wrap
+										h5.blog-list-sm__title #{item.title}
+										.info-block
+											.info-block__item
+												i.fa.fa-calendar
+												span.info-block__value #{item.data}
+
+											.info-block__item
+												i.fa.fa-eye
+												span.info-block__value #{item.views}
+
+											.info-block__item
+												i.fa.fa-comments-o
+												span.info-block__value #{item.comments}
+					a(href="/blog.html").blog-link
+						span.menu-icon-wrap
+							span.menu-icon
+						span.blog-link__text Все статьи
+
+					.main-form-section
+						h4.blog-title Подписаться на обновления
+						p.sidebar-section__text Вы будете получать подборку полезных статей о продвижении бизнеса, а также проверенные фишки маркетинга и скидки на отраслевые мероприятия
+						form.sidebar-form
+							.sidebar-form-group
+								span.input.input--hoshi
+									input.input__field.input__field--hoshi(type="text" id="input-1")
+									label.input__label.input__label--hoshi.input__label--hoshi-color-1(for="input-1")
+										i.fa.fa-user
+										span.input__label-content.input__label-content--hoshi Как Вас зовут?
+							.sidebar-form-group
+								span.input.input--hoshi
+									input.input__field.input__field--hoshi(type="text" id="input-2")
+									label.input__label.input__label--hoshi.input__label--hoshi-color-1(for="input-2")
+										i.fa.fa-envelope-o
+										span.input__label-content.input__label-content--hoshi Ваш e-mail
+							.sidebar-form-group.sidebar-button-group
+								button.btn.sidebar-form__btn Подписаться
+								p.sidebar-form__text уже подписались 1890 человек
+
+	//- Increase Section
+	include ../sections/increase-section
+	//- /Increase Section
+
+	//- Contacts Section
+	include ../sections/contacts
+
+	include ../partials/form-popup
+
+	

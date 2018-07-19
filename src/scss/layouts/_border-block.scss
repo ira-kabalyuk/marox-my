@@ -1,0 +1,18 @@
+.border-block {
+  border-top: 1px dashed $light-grey;
+  border-bottom: 1px dashed $light-grey;
+
+  &_no-bottom {
+    border-bottom: none !important;
+  }
+
+  &_dark {
+    border-top: 1px solid #373F54;
+    border-bottom: 1px solid #373F54;
+  }
+
+  &_solid {
+    border-top: 1px solid $light-grey;
+    border-bottom: 1px solid $light-grey;
+  }
+}

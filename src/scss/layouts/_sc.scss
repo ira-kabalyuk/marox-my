@@ -1,0 +1,40 @@
+.section {
+
+  &_dark {
+
+    .sc {
+      border-left: 1px solid #373F54;
+      border-right: 1px solid #373F54;
+    }
+  }  
+}
+
+.sc {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  
+
+  &__aside {
+    width: 364px;
+    min-width: 364px;
+    padding: 160px 64px 0;
+  }
+
+  &__content {
+    width: 100%;
+  }
+}
+
+// Media
+@media ($mw-1024) {
+  .sc {
+    flex-wrap: wrap;
+
+    &__aside {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+}

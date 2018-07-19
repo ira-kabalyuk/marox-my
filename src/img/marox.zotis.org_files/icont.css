@@ -1,0 +1,13 @@
+.content-editor .mainframe{
+	width: 100%;
+	height: 800px;
+	position: absolute;
+	border:0;
+}
+
+.content-editor {
+	display: block;
+	width: 100%;
+	min-height:100%;
+	height: auto; 
+}

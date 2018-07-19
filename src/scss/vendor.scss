@@ -1,0 +1,19 @@
+// Set bootstrap variables values
+@import "base/bootstrap-vars";
+
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap.scss';
+@import 'node_modules/font-awesome/scss/font-awesome.scss';
+
+// Haburger values
+$hamburger-padding-x                       : 0;
+$hamburger-padding-y                       : 0;
+$hamburger-layer-width                     : 24px;
+$hamburger-layer-height                    : 4px;
+$hamburger-layer-spacing                   : 4px;
+$hamburger-layer-color                     : #00A6BC;
+$hamburger-layer-border-radius             : 2px;
+$hamburger-hover-opacity                   : 1;
+$hamburger-hover-transition-duration       : 0.25s;
+$hamburger-hover-transition-timing-function: cubic-bezier(.55,.085,0,.99);
+
+@import "node_modules/hamburgers/_sass/hamburgers/hamburgers";

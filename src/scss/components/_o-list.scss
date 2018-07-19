@@ -1,0 +1,102 @@
+.o-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: point;
+
+  li {
+    position: relative;
+
+    &::before {
+      content: counter(point, decimal) '. ';
+      counter-increment: point 1;
+    }
+  }
+
+  &_lg {
+    li {
+      padding: 104px 168px 48px;
+      border-left: 1px solid #373F54;
+      border-bottom: 1px solid #373F54;
+      font: {
+        family: $gilroy;
+        size: 18px;
+      }
+      line-height: 36px;
+      color: $white;
+
+      &::before {
+        content: counter(point, decimal);
+        font: {
+          family: $gilroy;
+          size: 112px;
+          weight: 900;
+        }
+        line-height: 76px;
+        color: #373F54;
+        position: absolute;
+        bottom: 0;
+        left: 64px;
+      }
+    }
+  }
+}
+
+.ci {
+  @for $i from 2 through 10 {
+    &-#{$i} {
+      counter-increment: point #{$i};
+    }
+  }
+}
+
+// Media
+@media ($mw-1680) {
+  .o-list {
+    &_lg {
+      li {
+        padding: 80px 64px 64px;
+        font-size: 16px;
+        line-height: 32px;
+        &::before {
+          left: 16px;
+          font-size: 80px;
+          line-height: 54px;
+        }
+      }
+    }
+  }
+}
+@media ($mw-1024) {
+  .o-list {
+    &_lg {
+      li {
+        padding: 64px 56px 48px;
+        font-size: 16px;
+        line-height: 32px;
+        border-left: none;
+
+        &::before {
+          left: 16px;
+          font-size: 80px;
+          line-height: 54px;
+        }
+      }
+    }
+  }
+}
+@media ($mw-768) {
+  .o-list {
+    &_lg {
+      li {
+        padding: 40px 16px 40px 56px;
+        line-height: 24px;        
+        &::before {
+          left: 16px;
+          font-size: 64px;
+          line-height: 44px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,250 @@
+.profit-table {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  font-family: $gilroy;
+
+  p {
+    margin-bottom: 0;
+    font: {
+      size: 40px;
+      weight: 900;
+    }
+    line-height: 1;
+    position: relative;
+
+    sup {
+      font: {
+        size: 18px;
+      }
+      line-height: 40px;
+      vertical-align: top;
+    }
+  }
+
+  &__caption {
+    width: calc(100% - 256px);
+    padding: 0 24px 24px;
+    text-align: center;
+
+    p {
+      font: {
+        size: 24px;
+        weight: 900;
+      }
+      line-height: 1;
+    }
+  }
+
+  &__head {
+    width: 100%;
+
+    .profit-table__row {
+      padding-top: 0;
+      height: 56px;
+    }
+
+    .profit-table__right {
+      border-top: 1px dashed $light-grey;
+    }
+
+    .profit-table__col {
+      align-items: flex-end;
+    }
+
+    p {
+      font: {
+        size: 18px;
+        weight: 900;
+      }
+      line-height: 32px;
+      color: $graphite;
+    }
+
+     a {
+        font: {
+        size: 18px;
+        weight: 900;
+      }
+      line-height: 32px;
+      color: $graphite;
+      text-decoration: none;
+      pointer-events: none;
+    }
+    
+  }
+
+  &__body {
+    width: 100%;
+    display: none;
+
+    .profit-table__left {
+      background-color: $dark-blue;
+
+      p {
+        font: {
+          size: 18px;
+        }
+        color: $white;
+      }
+    }
+
+    &.active {
+      display: block
+    }
+  }
+
+  &__row {
+    display: flex;
+    height: 104px;
+  }
+
+  &__left {
+    display: flex;
+    width: 256px;
+    min-width: 256px;
+
+    .profit-table__col {
+      justify-content: flex-start;
+      padding: 0 16px 0 40px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    width: 100%;
+    padding: 8px 0;
+    border: 1px dashed $light-grey;
+    border-top: none;
+  }
+
+  &__col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 100%;
+    border-right: 1px dashed $light-grey;
+    padding: 0 16px;
+    text-align: center;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &_dark {
+      color: #373F54;
+    }
+
+    &_light {
+      color: #A6A6A6;
+    }
+  }
+}
+
+// Media
+@media ($mw-1200) {
+  .profit-table {
+    &__head {
+      p {
+        line-height: 20px;
+      }
+      a {
+        line-height: 20px;
+      }
+    }
+
+    &__body {
+      .profit-table__right {
+        p {
+          font-size: 28px;
+        }
+        a {
+          font-size: 28px;
+        }
+      }
+    }
+
+    p {
+      sup {
+        font-size: 16px;
+        line-height: 32px;
+      }
+    }
+  }
+}
+@media ($mw-768) {
+  .profit-table {
+    &__caption {
+      width: 100%;
+      padding: 0 0 24px;
+    }
+
+    &__head {
+      .profit-table__row {
+        height: auto;
+      }
+      .profit-table__left {
+        height: 0;
+      }
+    }
+
+    &__row {
+      flex-wrap: wrap;
+    }
+
+    &__left {
+      width: 100%;
+      min-width: auto;
+      height: 56px;
+
+      .profit-table__col {
+        padding: 0 16px;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media ($mw-480) {
+  .profit-table {
+    &__head {
+      .profit-table__col {
+        width: 50%;
+        align-items: center;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1;
+      }
+       a {
+        font-size: 16px;
+        line-height: 1;
+      }
+    }
+
+    &__body {
+      .profit-table__right {
+        p {
+          font-size: 20px;
+        }
+        a {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &__col {
+      padding: 0;
+    }
+
+    p {
+      sup {
+        font-size: 10px;
+        line-height: 20px;
+      }
+    }
+  }
+}

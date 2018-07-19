@@ -1,0 +1,59 @@
+.breadcrumbs {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 48px;
+
+  &__item {
+    font-size: 12px;
+    line-height: 16px;
+    color: $blue;
+    text-decoration: underline;
+    padding-right: 13px;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: '/';
+      position: absolute;
+      right: 4px;
+    }
+    &:first-child {
+      padding-left: 16px;
+      &::before {
+        content: '\f015';
+        font-family: $fa;
+        position: absolute;
+        left: 0;
+      }
+    }
+    &:last-child {
+      color: $white;
+      text-decoration: none;
+      pointer-events: none;
+      cursor: default;
+      &::after {
+        content: none;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}
+
+// Media
+@media ($mw-1440) {
+  .breadcrumbs {
+    margin-bottom: 32px;
+  }
+}
+@media ($mw-768) {
+  .breadcrumbs {
+    margin-bottom: 24px;
+  }
+}

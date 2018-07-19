@@ -1,0 +1,69 @@
+aside.sidebar
+
+	.sidebar-section
+
+		.sidebar-section__wrap
+
+			p.blog-section__title Рубрики блога
+
+			ul
+				each item in pages.blog.categories
+					li
+						a(href="#") #{item}
+
+		.sidebar-section__wrap.sidebar-section__border-wrap
+
+			h4.blog-title Подписаться на обновления
+
+			p.sidebar-section__text Вы будете получать подборку полезных статей о продвижении бизнеса, а также проверенные фишки маркетинга и скидки на отраслевые мероприятия
+
+			form.sidebar-form
+
+				.sidebar-form-group
+
+					span.input.input--hoshi
+						input.input__field.input__field--hoshi(type="text" id="input-1")
+						label.input__label.input__label--hoshi.input__label--hoshi-color-1(for="input-1")
+							i.fa.fa-user
+							span.input__label-content.input__label-content--hoshi Как Вас зовут?
+
+				.sidebar-form-group
+
+					span.input.input--hoshi
+						input.input__field.input__field--hoshi(type="text" id="input-2")
+						label.input__label.input__label--hoshi.input__label--hoshi-color-1(for="input-2")
+							i.fa.fa-envelope-o
+							span.input__label-content.input__label-content--hoshi Ваш e-mail
+
+				button.btn.sidebar-form__btn Подписаться
+
+				p.sidebar-form__text 
+					| уже подписались
+					br 
+					| 1890 человек
+
+	.sidebar-section
+
+		p.blog-section__title.left-section__title Популярные статьи
+
+		ul.blog-list-sm
+			each item in pages.blog.smBlogItem
+				li.blog-list-sm__item
+					a(href="")
+						.blog-list-sm__img-wrap
+							img(src=`${item.img}`,alt="")
+						.blog-list-sm__content-wrap
+							h5.blog-list-sm__title #{item.title}
+							.info-block
+								.info-block__item
+									i.fa.fa-calendar
+									span.info-block__value #{item.data}
+
+								.info-block__item
+									i.fa.fa-eye
+									span.info-block__value #{item.views}
+
+								.info-block__item
+									i.fa.fa-comments-o
+									span.info-block__value #{item.comments}
+

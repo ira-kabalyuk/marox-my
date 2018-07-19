@@ -1,0 +1,296 @@
+.infographic {
+  padding: 120px 0 0;
+
+  &__title {
+    font: {
+      size: 40px;
+    }
+    margin-bottom: 40px;
+  }
+
+  &__sub {
+    font: {
+      family: $gilroy;
+      size: 24px;
+      weight: 900;
+    }
+    line-height: 32px;
+    margin-bottom: 0;
+  }
+
+  &__small {
+    font: {
+      family: $gilroy;
+      size: 18px;
+      weight: 900;
+    }
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
+
+  &__btn {
+    color: $black;
+    &:hover {
+      color: $black;
+    }
+    width: 100%;
+    max-width: 450px;
+  }
+
+  &__graph {
+    width: 100%;
+    height: 432px;
+    margin: 48px auto;
+    position: relative;
+
+    &_project {
+      .infographic__dot {
+        &_2 {
+          left: 30.6%;
+          &::after {
+            background-color: #0086A7;
+          }
+        }
+      }
+      .infographic__line {
+        width: 5px;
+        height: 37%;
+        border: 5px dashed #0086A7;
+        position: absolute;
+        left: 35%;
+        bottom: 27px;
+      }
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    text-align: center;
+    &_1 {
+      left: -0.5%;
+      bottom: 21.31%;
+    }
+    &_2 {
+      left: 30.5%;
+      bottom: 47.1%;
+    }
+    &_3 {
+      left: 53%;
+      bottom: 65.2%;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-color: #282E41;
+    }
+
+    span {
+      margin-bottom: 16px;
+      font: {
+        family: $gilroy;
+        size: 14px;
+        weight: 900;
+      }
+      line-height: 1;
+    }
+  }
+}
+
+.graph-img {
+  max-width: 1024px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+  }
+}
+
+// Media
+@media ($mw-1680) {
+  .infographic {
+    &__graph {
+      &_project {
+        .infographic__line {
+          left: 35.8%;
+        }
+      }
+    }
+  }
+}
+@media ($mw-1440) {
+  .infographic {
+    &__graph {
+      &_project {
+        .infographic__line {
+          width: 3px;
+          border-width: 3px;
+          left: 35.7%;
+        }
+      }
+    }
+  }
+  .infographic__dot {
+    &_1 {
+      left: -0.5%;
+      bottom: 23%;
+    }
+    &_2 {
+      left: 29.9%;
+      bottom: 47%;
+    }
+    &_3 {
+      left: 51.3%;
+      bottom: 64.5%;
+    }
+    &::after {
+      width: 14px;
+      height: 14px;
+    }
+
+    span {
+      display: block;
+      max-width: 100px;
+      margin-bottom: 8px;
+    }
+  }
+}
+@media ($mw-1024) {
+  .infographic {
+    padding-top: 80px;
+    &__title {
+      font-size: 32px;
+      margin-bottom: 32px;
+    }
+
+    &__sub {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    &__graph {
+      height: 320px;
+      &_project {
+        .infographic__line {
+          display: none;
+        }
+      }
+    }
+
+    &__dot {
+      &_2 {
+        left: 30%;
+        bottom: 46.5%;
+      }
+      &_3 {
+        left: 51.6%;
+        bottom: 64%;
+      }
+      &::after {
+        width: 14px;
+        height: 14px;
+      }
+
+      span {
+        display: block;
+        max-width: 100px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+@media ($mw-768) {
+  .infographic {
+    &__title {
+      font-size: 24px;
+    }
+    &__graph {
+      height: 320px;
+    }
+    &__dot {
+      &::after {
+        width: 10px;
+        height: 10px;
+      }
+      &_1 {
+        left: -0.5%;
+        bottom: 24%;
+      }
+      &_2 {
+        left: 30%;
+        bottom: 47%;
+      }
+      &_3 {
+        left: 51.6%;
+        bottom: 65%;
+      }
+
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+}
+@media ($mw-480) {
+  .infographic {
+    &__graph {
+      &_project {
+        .infographic__dot {
+          &_2 {
+            left: 25%;
+          }
+        }
+      }
+    }
+    &__dot {
+      &_1 {
+        left: -1%;
+        bottom: 24%;
+      }
+      &_2 {
+        left: 25%;
+        bottom: 44%;
+      }
+      &_3 {
+        left: 48%;
+        bottom: 63%;
+      }
+
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media ($mw-320) {
+  .infographic {
+    &__graph {
+      &_project {
+        .infographic__dot {
+        }
+      }
+    }
+    &__dot {
+      &_1 {
+        left: -2%;
+        bottom: 24%;
+      }
+      &_2 {
+        left: 25%;
+        bottom: 46%;
+      }
+      &_3 {
+        left: 45%;
+        bottom: 64%;
+      }
+
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+}

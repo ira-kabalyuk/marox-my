@@ -1,0 +1,101 @@
+.nav-toggle-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 112px;
+  height: 100%;
+  padding: 0;
+  background-color: $white;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: 0 0 7px rgba($black, .13);
+  font-size: 20px;
+  font-weight: 900;
+  color: $black;
+  cursor: pointer;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  @include trans;
+  &:focus,
+  &:active {
+    background-color: $white;
+    color: $black;
+    text-decoration: none;
+  }
+  &:hover,
+  &.is-active {
+    width: 120px;
+    background-color: $blue;
+    text-decoration: none;
+    color: $white;
+    .hamburger {
+      &-inner {
+        background-color: $white;
+        &::before,
+        &::after {
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+  > span {
+    display: block;
+    white-space: nowrap;
+    transform: rotate(-90deg) translateX(50%);
+    transform-origin: center;
+  }
+}
+
+.hamburger {
+  outline: none;
+  &-inner {
+    @include trans(!important);
+    &::before,
+    &::after {
+      @include trans(!important);
+    }
+  }
+}
+
+// Media
+@media ($mw-1200) {
+  .nav-toggle-btn {
+    width: 80px;
+    &:hover,
+    &.is-active {
+      width: 88px;
+    }
+  }
+}
+@media ($mw-1024) {
+  .nav-toggle-btn {
+    height: 80px;
+    &:hover,
+    &.is-active {
+      width: 80px;
+    }
+
+    > span {
+      font-size: 0;
+    }
+  }
+
+  .hamburger {
+    margin-top: 4px;
+  }
+}
+@media ($mw-768) {
+  .nav-toggle-btn {
+    height: 56px;
+    width: 56px;
+    &:hover,
+    &.is-active {
+      width: 56px;
+    }
+  }
+}

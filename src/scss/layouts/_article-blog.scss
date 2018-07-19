@@ -1,0 +1,504 @@
+//sectionTitles
+
+.info-wrap-sectionTitles {
+	max-width: 470px;
+	align-items: center;
+}
+
+.user-block__name--light {
+    color: #BCBCBC;
+}
+
+.info-block {
+
+	.fa-light {
+		color: #BCBCBC;
+	}
+
+	.info-block__value--light {
+			color: #BCBCBC;
+	}
+
+}
+
+//article-blog
+
+.aricle-blog {
+	padding: 30px 0 0 0;
+
+	.text-40 {
+		font-family: "Gilroy", sans-serif;		
+		margin: 30px auto 30px 0;
+	}
+
+	.why-we {
+		font-family: "Gilroy", sans-serif;
+		color: #fff;
+		padding: 32px 64px;
+		margin: 48px 0;
+		position: relative;	
+		
+
+		&:after {
+		content:"";
+		display: block;
+		background-image: url(../img/rates-bg-r.png);
+		background-repeat: no-repeat;
+		background-position: 100% 50%;
+		background-size: contain; 
+
+		width: 209px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;	
+		
+		}
+		
+
+		span {
+			font-weight: 900;
+		}
+	}
+
+	p {
+		span {
+			font-weight: 700;
+		}
+	}	
+}
+
+.p-img-wrap {
+	max-width: 264px;
+	margin: 95px 0 95px 95px;
+	overflow: hidden;
+	float: right;
+
+	img {
+		width: 100%;
+	}
+}
+
+.p-text-wrap {
+	font-family: "Gilroy", sans-serif;
+	max-width: 264px;
+	margin: 75px 0 75px 95px;
+	overflow: hidden;
+	float: right;
+}
+
+.p {
+
+	&__value {
+		font-family: "Gilroy", sans-serif;
+    font-size: 96px;
+    text-transform: lowercase;
+    line-height: 96px;    
+    display: block;
+		margin-bottom: 30px;
+	}
+}
+
+.text-36 {
+	font-size: 36px;
+}
+
+.light-block {
+		background: #F9F8F6;
+		padding: 40px;
+
+		p {
+			margin: 0;
+		}		
+	}
+
+	.text-18 {
+		font-size: 18px;
+		line-height: 2em;
+		margin: 30px auto 30px 0;
+	}
+
+	.text-40 {
+		font-size: 40px;		
+	}
+	
+	.text-30 {
+		font-size: 30px;		
+	}
+
+	.text-24 {
+			font-family: "Gilroy", sans-serif;
+			font-size: 24px;
+	}
+
+.article-title {
+	font-weight: 900;
+	margin: 50px auto 30px 0;
+} 
+
+.article-title-lg {
+		font-weight: 900;
+		margin: 30px auto 30px 0;
+}
+
+.article-title-md {
+	font-weight: 900;
+	margin: 30px auto 30px 0;
+}
+
+.article-ol-list {
+		margin: 30px auto 30px 0;
+
+	li {
+		font-size: 18px;
+		//margin: 10px auto 10px 0;
+		line-height: 2em;
+	}
+}
+
+.article-ul-list {
+		margin: 30px auto 30px 0;
+
+	li {
+		font-family: "Roboto", sans-serif;			
+		//list-style: disc inside;
+		display: flex;
+		color: $middle-blue;
+		font-size: 30px;
+		line-height: normal;
+		//margin: 10px auto 10px 0;
+		line-height: 2em;
+
+			font-size: 18px;
+			color: #000;
+			font-weight: 400;		
+			vertical-align: middle;
+			
+
+			&:before {
+				content: "";
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				display: inline-block;
+				background: $middle-blue;
+				vertical-align: middle;
+
+				flex-basis: 15px;
+				flex-shrink: 0;
+				margin-top: 10px;
+			
+			}
+
+		span {
+			display: inline-block;
+			width: calc(width: 100% - 30px);
+			margin-left: 20px;
+		}
+	}
+}
+
+.article-link {
+	text-decoration: underline;
+	display: inline-block;
+	color: $middle-blue;
+	padding: 0 5px;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.article-img-block-sm {
+	margin: 30px auto 30px 0;
+	display: flex;
+	align-items: flex-end;
+
+	.article-img-wrap {
+		max-width: 60%;
+		flex-basis: 100%;
+		flex-shrink: 0;
+		margin-right: 20px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+		}
+
+	}
+
+}
+
+.article-img-description {
+	font-size: 14px;
+	font-weight: 900;
+	display: inline-block;
+}
+
+.article-img-block-lg {
+	margin: 60px auto 60px 0;
+
+	.article-img-wrap {
+		max-width: 100%;
+		overflow: hidden;
+		margin-bottom: 20px;
+
+		img {
+			width: 100%;
+		}
+		
+	}
+
+}
+
+.article-table {
+	width: 100%;
+	font-family: "Gilroy", sans-serif;
+	margin: 60px auto 60px 0;
+	border: 1px dashed #A6A6A6;
+
+	li {
+
+		&:nth-child(2n+1) {
+			background: #F9F8F6;
+		}
+
+		&:first-child {
+			background: #242A3C;
+		}
+	}
+
+
+	span {
+		width: 50%;
+		border-right: 1px dashed #A6A6A6;
+		padding: 8px 72px;
+		text-align: right;
+
+		&:nth-child(2n) {
+			border-right: none;
+		}
+	}
+
+}
+
+
+.article-table {
+
+		&__wrap {
+			display: flex;
+			padding: 10px 0;	
+		}
+
+		&__heading {
+			background: #242A3C;
+			color: $white;
+			font-size: 18px;	
+			font-weight: 900;
+
+			span {
+				padding: 5px 72px;				
+			}
+		}
+
+		li {
+		border-bottom: 1px dashed #A6A6A6;
+
+			&:last-child {
+				border-bottom: none;
+			}
+		}		
+}
+
+.article-table {
+
+	&__value {
+	font-size: 40px;
+	font-weight: 900;
+	color: #373F54;
+	}
+
+	&__text {
+		font-size: 16px;
+	}
+}
+
+
+.block-dark {
+	background-image: url(../img/rates-bg-dark.png);
+	background-size: contain;
+	background-position: right 72px bottom 0;
+	background-repeat: no-repeat;
+	background-color: #282E41;
+	margin: 60px auto 60px 0;
+	padding: 46px 60px;
+	color: $white;
+
+	&__content {
+		display: flex;
+		font-weight: 900;
+		align-items: stretch;
+	}
+
+	&__text-title {
+		font-weight: 900;
+	}
+
+	&__img-wrap {
+		max-width: 209px;
+		flex-basis: 100%;
+		flex-shrink: 0;
+		margin-right: 56px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+		}
+
+	}
+
+	.text-24 {
+		max-width: 450px;
+	}
+}
+
+
+@media ($mw-768) { 
+
+	.article-table {
+
+		span {
+			padding: 10px 30px;
+		}
+
+	}
+
+	.article-table__value {
+		font-size: 32px;
+	}
+
+	.block-dark {
+		background-position: right 0 bottom 0;		
+	}
+
+	.text-40 {		
+		font-size: 32px;		
+	}
+
+	.text-30 {
+		font-size: 26px;		
+	}
+
+	.p-img-wrap {
+		margin: 50px 0 50px 50px;
+	}
+
+}
+
+@media only screen and (min-width: 1441px) {
+
+		.aricle-blog {
+			padding: 85px 0 60px 0;
+		}
+}
+
+@media ($mw-667) {
+
+	.block-dark__content {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.block-dark__img-wrap {
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+
+}
+
+
+@media ($mw-568) {
+
+	.article-table__text {
+		font-size: 14px;
+	}
+
+	.article-table__value {
+		font-size: 25px;
+	}
+
+	.article-table {
+
+		span {
+			padding: 10px;
+		}
+
+	}
+
+}
+
+
+@media ($mw-415) {
+
+	.article-title-lg {
+		margin: 15px auto 15px 0;	
+	}
+
+	.text-40 {
+		font-size: 25px;
+	}
+
+	.text-30 {
+		font-size: 20px;		
+	}
+
+	.text-18 {
+		font-size: 16px;
+		margin: 15px auto 15px 0;
+	}
+
+	.article-img-block-lg {
+		margin: 30px auto 30px 0;
+	}
+
+	.article-img-block-sm {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		.article-img-wrap {
+			max-width: 100%;
+			margin-right: 0;
+			margin-bottom: 20px;
+		}
+
+	}
+
+	.article-ol-list {
+
+		li {
+				font-size: 16px;
+			}
+	}
+
+	.article-ul-list {
+
+			li {
+				font-size: 16px;
+			}
+	}
+
+	.article-table,
+	.block-dark {
+		margin: 30px auto 30px 0;
+	}
+
+	.p-img-wrap {
+		margin: 30px 0 30px 30px;
+	}
+
+}
+
+
+
+

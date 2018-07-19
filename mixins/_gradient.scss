@@ -1,0 +1,4 @@
+@mixin gradient($from: $blue, $to: $green, $from-location: 0%, $to-location: 100%, $direction: to right) {
+  background: $from;
+  background: linear-gradient($direction, $from $from-location, $to $to-location);
+}

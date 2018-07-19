@@ -1,0 +1,57 @@
+.section {
+  position: relative;
+  padding: 112px 0;
+
+  &_dark {
+    background-color: $dark-blue;
+  }
+
+  &_light {
+    background-color: #F2F2F2;
+    position: relative;
+    z-index: 1;
+
+      &:after {
+        content: "";
+        background: url(../img/form-bg.png) no-repeat;
+        background-size: contain;
+        display: inline-block;        
+        width: 762px;
+        height: 485px;
+        position: absolute;
+        top: -9px;
+        left: -110px;
+        z-index: -1
+      }
+
+      &:before {
+        content: "";
+        background: url(../img/form-bg.png) no-repeat;
+        background-size: contain;
+        display: inline-block;        
+        width: 762px;
+        height: 485px;
+        position: absolute;
+        bottom: -9px;
+        right: 20px;
+        z-index: -1;
+        transform: rotate(180deg);
+      }
+  }
+
+  &_middle {    
+    padding: 55px 0;
+  }
+
+  &_white {
+    background-color: #F2F2F2;
+    position: relative;
+  }
+
+}
+
+@media ($mw-768) {
+  .section {
+    padding: 80px 0;
+  }
+}

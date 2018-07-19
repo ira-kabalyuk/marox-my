@@ -1,0 +1,54 @@
+.text {
+  &-light {
+    font-weight: 300;
+  }
+  &-bold {
+    font-weight: 700;
+  }
+  &-black {
+    font-weight: 900;
+  }
+
+  // Colors
+  &-white {
+    color: $white;
+  }
+  &-dark {
+    color: $black !important;
+	}
+	
+	&-16 {
+		font-size: 16px;
+	}
+
+  &-30 {
+    font-size: 30px;
+  }
+
+  &-40 {
+    font-size: 40px;
+  }
+
+  &-24 {
+    font-size: 24px;
+  }
+
+  &-gradient {
+    @include gradient();
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -ms-background-clip: text;   
+
+    &-link {
+      //text-decoration: underline;    
+      border-bottom: 1px solid #00A6BC; 
+
+      &:hover {
+        //text-decoration: none;
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+

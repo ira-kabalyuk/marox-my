@@ -1,0 +1,427 @@
+window.Smart={
+tabset_tpl:
+{
+	menu:'<ul class="nav nav-tabs bordered"></ul>',
+	menu_item:'<li class="[cls]"><a href="[link]" data-toggle="tab" >[title]</a></li>',
+	tabset:'<div class="tab-content padding-10"></div>',
+	tab_item:'<div class="tab-pane fade in active" id="[id]"></div>'
+},	
+
+makeAlign:function(){
+
+},
+
+makeTab:function(div,open){
+	var self=this;
+	var $sets=$(div).find('.set');
+	
+	$(div).find('.accord').css('display','block');
+	var tabMenu=$(self.tabset_tpl.menu).prependTo(div);
+	$(div).find('div.set').each(function(){
+		var self=this;
+		var id=$(this).attr('id');
+		if(id!='set-'+open){
+			$(this).hide();
+		}else{
+			$(this).find('>h3').addClass('active');
+		} 
+		var menuItem=$(this).find('>h3').appendTo(tabMenu).click(function(){
+			$sets.hide();
+			$(self).show();
+			tabMenu.find('h3').removeClass('active');
+			$(this).addClass('active');
+
+		});
+	});
+
+},
+
+makeNestable:function(div,d,opt,callback){
+			
+			var $dd=$('<ol class="dd-list"></ol>').appendTo(div);
+			var o=$.extend({
+				"li":'<li class="dd-item" data-id="[id]"><div class="dd-handle">[title]<span>[desc]</span></div></li>'},opt);
+
+			var tpl=function(t,d){
+				for(var a in d)
+					t=t.split('['+a+']').join(d[a]);
+				return t;
+			};
+				
+			for( var i in d){
+				var l=d[i];
+				var itm=$(tpl(o.li,d[i])).appendTo($dd);
+				if('child' in l){
+					if(l.child.length>0)
+						this.makeNestable(itm,l.child,o);
+				}
+			}
+			if(arguments.length==4)
+				callback();
+		},
+
+dataTable:function(opt){
+	var self=this;
+		loadScript("/smart/js/plugin/datatables/jqdatatable.js", function(){self._dataTable(opt);});
+	},
+
+/**
+			l - Length changing (dropdown)
+			f - Filtering input (search)
+			t - The Table! (datatable)
+			i - Information (records)
+			p - Pagination (paging)
+			r - pRocessing 
+			< and > - div elements
+			<"#id" and > - div with an id
+			<"class" and > - div with a class
+			<"#id.class" and > - div with an id and class
+			
+			Also see: http://legacy.datatables.net/usage/features
+*/
+_dataTable:function(opt){
+	var o=$.extend({limit:0,tool:['o','e','d'],columns:[], target:'#content',sort:false,del_msg:"For delete element, press <b>Yes</b>.",set:{}},opt);
+	var th=$(o.table).find('thead th');
+	var tpl={
+		o:'<a data-id="[id]" class="btn btn-[class] btn-xs onoff ml5" title="On/Off"><i class="fa fa-power-off"></i></a>',
+	 	e:'<a href="[modlink]&act=edit&el_id=[id]" class="btn btn-primary btn-xs ajax-nav ml5" title="Edit" data-target="[target]"><i class="fa fa-edit"></i></a>',
+
+	 	s:'<a href="/smart/?mod=setup&type=[mods]" class="btn btn-warning btn-xs ajax-nav ml5" title="setup" data-target="[target]"><i class="fa fa-gear"></i></a>',
+
+		d:'<a href="[modlink]&act=delete&el_id=[id]&aj=1" class="btn btn-danger btn-xs confirm-l ml5" title="delete" data-target="[target]">	<i class="fa fa-times"></i></a>'};
+
+	var set=$.extend({
+		"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
+					"t"+
+					"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+				"autoWidth" : true,
+				
+				ordering: false,
+				bSort : false,
+				"columns":[],
+				"ajax": o.dataurl
+	},opt.set);
+
+	if(o.limit>0){
+		set.serverSide=true;
+		set.processing=true;
+		set.fnServerParams=function(d){d.columns=null;};
+		//set.fnDrawCallback=function(os){console.log('fnDrawCallback',os);this._fnAjaxUpdate()};
+		//set.pageLength=o.limit;
+		//set.fnPreDrawCallback=function(o){o._iRecordsTotal=20;o._iRecordsDisplay=o.limit;console.log("fnPreDrawCallback",o);}
+
+	}
+	/*
+		set:{"deferLoading": 100, "serverSide": true, 
+		"fnServerParams":function(d){d.columns=null;},
+		"fnInitComplete":function(o,j){console.log('fnInitComplete',o,j);},
+		"fnStateLoad": function (oSettings) {console.log("fnStateLoad")},
+		"fnDrawCallback": function( oSettings ) {
+      console.log(this._fnAjaxUpdate());
+    */
+
+
+	var OnOff=function(targ){
+		var self=this;
+		var id=$(targ).data('id');
+		$(targ).html('<i class="fa fa-gear fa-spin"></i>');
+	
+		$.ajax({
+			url:o.modlink+'&act=onoff&el_id='+id,
+			type:'GET',
+			success:function(d){
+//				console.log(d);
+				$(targ).html('<i class="fa fa-power-off"></i>');
+				if(d=='on'){
+				$(targ).removeClass('btn-default').addClass('btn-success');
+			}else{
+				$(targ).removeClass('btn-success').addClass('btn-default');
+			}
+			}
+		});
+};
+	
+	var toolbar="";
+	for(var i in o.tool){
+		toolbar+=tpl[o.tool[i]];
+	}
+	var ti=4;
+
+	var fnRowCallback=function(nRow,aData,iDataIndex){
+				//console.log(aData,iDataIndex);
+				aData['class']= aData.is_hidden=="0" ? 'success':'default';
+				aData['modlink']= o.modlink;
+				aData['target']= o.target;
+                $(nRow).attr('data-id',aData.id);
+                if(o.sort){
+                	$('td:eq(0) i', nRow).remove();
+                	$('td:eq(0)', nRow).prepend('<i class="fa fa-reorder fa-fw pointer"></i>');
+                }  
+                $('td:eq('+ti+')', nRow).tpl( toolbar, aData);
+	};
+
+	for(var i=0;i<th.length;i++){
+		var dt=$(th[i]).data('c');
+		//console.log(dt);
+		
+		if(dt=="tool"){
+			set.fnRowCallback=fnRowCallback;
+			ti=i;
+			set.columns.push({data:'id'});	
+		}else{
+			set.columns.push({data:dt});
+		} 
+	}
+		var $table = $(o.table);
+		
+		$table.on( 'draw.dt', function (){
+	    	$table.find('a.confirm-l').bsPrompt({content:o.del_msg});
+
+		});
+		
+
+		$table.on('click','a.onoff',function(){
+				 OnOff(this);
+			});
+
+		var dtable=$table.dataTable(set);
+
+		$table.on('ajaxload',function(e,d){
+			console.log(dtable);
+			dtable.api().ajax.url(d.url).load();
+		});
+		
+		if(o.sort){
+			$('tbody', o.table).sortable({
+				cursor:"move",
+				handle:".fa-reorder",
+  update : function(event, ui) {
+  	var tr=$(o.table).find('tbody tr');
+  	var t=[];
+  	console.log(ui);
+  	for (var  i=0; i<tr.length; i++)
+  		t.push($(tr[i]).data('id'));
+			
+			console.log(t.join(","));
+			$.ajax({
+				type:"post",
+				url:o.modlink+'&act=place&el_id='+$(ui.item).data('id'),
+				data:{'ids':t.join(","),'terms':$table.data('terms')},
+				success:function(d){
+					console.log('sorting',d);
+				}
+			});
+			
+
+  }
+});
+		}
+		
+},
+
+makeAjaxUpload:function(D,obj){
+//{div_id,div,link,pid}
+var interval;
+var button=$(obj).find('button')[0];
+var $info=$(obj).find('.info');
+var $img=$(obj).find('img');
+var link=D.link+'&act=upload&div='+D.div+'&parent_id='+D.pid;
+      $.ajax_upload(button, {
+            action : link,
+            name : D.div,
+            onSubmit : function(file, ext) {
+              // показываем картинку загрузки файла
+              $('<span clas="pad20" id="progress_upload"> Upload image '+file+' <span class="pad20"><img src="/skin/admin/img/ajax-loader.gif"></span></span>').appendTo($info);
+               //Выключаем кнопку на время загрузки файла
+              this.disable();
+
+            },
+            onComplete : function(file, response) {
+            	var res=$.parseJSON(response);
+              	console.info(res);
+              // убираем картинку загрузки файла
+              $info.html(" ");
+              $img.attr('src','/'+res.path+'/'+res.fname+'?j='+Math.random());
+              // снова включаем кнопку
+              this.enable();
+            //  Crop(D.div_id,link);
+              
+            }
+          });
+
+      Crop(obj,link);
+
+},
+
+bindUpload:function(clas){
+	var self=this;
+	$(clas).each(function(){
+		var d=$(this).data();
+		if('bind' in d) return;
+			$(this).data('bind',true);
+			self._upload_ids+="x";
+			d.div_id=self._upload_ids;
+			$(this).attr('id',d.div_id);
+			self.makeAjaxUpload(d,this);
+		
+	});
+},
+parseJSON:function(sr){
+	var ret={};
+	try{
+		var t=sr.toString().split(",");
+	for(var i=0;i<t.length;i++){
+		var s=t[i].split(":");
+		ret[s[0]]=s[1];
+		}
+	}catch(e){
+		console.log("parseJSON",sr);
+	}
+	
+	
+	return ret;
+},
+
+realImgSize:function(imgSrc,callback) {
+    var newImg = new Image();
+    newImg.onload = function() {
+     callback({w:newImg.width,h:newImg.height});
+    }
+    newImg.onerror = function(){
+        console.log('image '+imgSrc+' not load');
+    }
+    newImg.src = imgSrc;
+
+    
+},
+
+
+send:function(opt){
+	
+},
+
+
+};
+
+/**
+ * асинхронная мультизагрузка js, css
+ * callback выполнится после загрузки всех url
+ * все url кешируются
+ * @author Vladimir.k_
+ * $.multiload(urls,callback);
+ * urls - массив url (*.js, *.css)
+ * callback - функция
+ */
+$.fn.removeClassWild=function(mask) {
+        return this.removeClass(function(index, cls) {
+            var re = mask.replace(/\*/g, '\\S+');
+            return (cls.match(new RegExp('\\b' + re + '', 'g')) || []).join(' ');
+        });
+    };
+
+jQuery.extend({
+	_cachedScript:[],
+	loadCSS:function(href) {
+	  var cssLink = $("<link>");
+  		$("head").append(cssLink);
+  	cssLink.attr({
+    		rel:  "stylesheet",
+    		type: "text/css",
+    		href: href
+  		});
+	},
+	
+	loadFile:function(url) {
+     function callback() {
+     	finish=false;
+      if (req.readyState == 4) { // 4 = Loaded
+        if (req.status == 200) {
+          //можно реализовать анализ скриптов по требованию
+          console.info("load script "+url);
+        try{
+          eval(req.responseText);
+          finish=true;
+      	}catch(e){
+      		console.error(e,url);
+      		
+      }finally{
+      	if(finish){
+      		$._cachedScript[url].loading=true;
+			$($._cachedScript[url].binds).trigger('mload');
+      		}
+      	}
+        } else {
+          // ошибка в получении ответа
+          console.error(' error load '+url); 
+        }
+      }
+    };
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = callback;
+    req.open("GET", url, true);
+    req.send("");
+  },
+
+	triggerLoad:function(u,obj){
+		if(u in $._cachedScript){
+			// если скрипт уже загружен
+			if($._cachedScript[u].loading){
+				obj._load();
+			}else{
+				$._cachedScript[u].binds.push(obj);
+				$(obj).bind('mload',function(){this._load();});
+			}
+		}else{
+			// если скрипта нет в кеше
+			$._cachedScript[u]={loading:false,binds:[obj]};
+			$(obj).bind('mload',function(){this._load();});
+			var re=/\.js$/;
+			if(re.test(u)){
+				//$.loadFile(u);
+				
+					$.getScript(u,function(d,s) {
+						if(s!='success'){
+							if(window.console) console.error('$.multiload: can`t load '+u);
+							return;	
+						}
+						//console.info('$.multiload: loaded script '+u);
+						setTimeout(function(){
+							$._cachedScript[u].loading=true;
+							$($._cachedScript[u].binds).trigger('mload');
+						},100);
+				});
+			
+			}else{
+				
+				$.ajax({url:u}).done(function(d,s){
+					//console.info('$.multiload: loaded css '+u);
+					$._cachedScript[u].loading=true;
+					$($._cachedScript[u].binds).trigger('mload');
+					$.loadCSS(u);
+					
+				}).fail(function(d,d){
+					console.error('$.multiload: not loaded css '+u);
+				});
+			}
+
+		}
+	},
+
+	multiload:function(urls,callback){
+		var core={
+			counter:urls.length,
+			callback:callback,
+			_load:function(){
+			this.counter--;
+			if(this.counter!=0) return;
+			$(this).unbind('all');
+			//console.log('run callback');
+			 this.callback();
+			}
+		};
+		
+		for(var i=0;i<urls.length;i++)
+			$.triggerLoad(urls[i],core);
+	
+	}
+});

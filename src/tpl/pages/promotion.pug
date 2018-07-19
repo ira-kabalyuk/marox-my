@@ -1,0 +1,185 @@
+extends ../template
+
+block title
+	- title = pages.promotion.title
+	
+block breadcrumbs
+	- breadcrumbsCat     = pages.promotion.category
+	- breadcrumbsCurrent = pages.promotion.title
+
+//- Top Section
+block sectionTitles
+	- h1           = pages.promotion.h1
+	- subTitle     = pages.promotion.subTitle
+	- sectionClass = pages.promotion.form
+	
+block topSectionContent
+//- //Top Section
+
+block topForm
+	include ../sections/top-form
+				
+block content
+	//- Info Section
+	section.section.info-section
+		.container
+			h2.deco-line
+				| Мы помогаем нашим клиентам
+				br
+				span.text-black зарабатывать больше
+				
+			p.info-section__p Основная задача, которую мы решаем — это рост ваших продаж благодаря увеличению посещаемости вашего сайта и его модернизации.
+			
+			p.info-section__p.text-black Схема нашей работы нацелена на достижение максимального результата.
+	//- /Info Section
+	
+	
+	//- Steps section
+	section.steps
+		.border-block
+			.container.steps__container
+				.row
+					each item in steps
+						.col-sm-4
+							div(class="text-center steps__item " + item.class)
+								h3.steps__title #{item.title}
+								p.steps__p #{item.p}
+								
+				.steps__result
+					p Увеличение прибыльности вашего сайта
+	//- /Steps section
+	
+	
+	//- Rate section
+	include ../sections/rate
+	//- /Rate section
+	
+	
+	//- Seo Section
+	section.seo.section.section_dark
+		.container
+			h2.deco-line.text-white
+				span.text-black SEO-продвижение 
+				| от Marox в
+				br.hidden-xs
+				| каждом из 4 планов
+				
+		.seo__benefits
+			.container.flex
+				each item in seo
+					div(class="seo__item " + item.class)
+						h3.seo__title #{item.title}
+						p.seo__p #{item.p}
+	//- /Seo Section
+	
+	
+	section.project-section
+		.border-block
+			.container
+				h2.deco-line.text-black Проекты, которые мы реализовали
+				p.sub-title Успешные кейсы — всегда лучше слов. Посмотрите примеры нашей эффективной работы и ее результаты.
+				
+				.projects
+					each row in projects
+						.projects__row
+							each item in row
+								div(class=item.grow ? "projects__item projects__item_grow" : "projects__item")
+									.projects__item-container
+									p.projects__descr #{item.descr}
+									h3.projects__title #{item.title}
+									a(href="#").projects__more Смотреть кейс
+							
+				.project-section__footer.flex
+					p.text-gradient.text-black.project-section__lead Всего более 120 реализованных проектов
+					
+					a.btn.btn_wide(href="#") Смотреть все кейсы
+	
+	//- Difference Section
+	section.difference.section
+		.container
+			h2.deco-line
+				| Чем продвижение сайта в нашей компании 
+				span.text-black отличается от услуг 90% SEO-студий?
+				
+			.sc
+				.sc__aside
+					p.difference__p Сегодня поисковые системы очень быстро совершенствуют алгоритмы поиска. Продвигать сейчас сайт старыми методами, которыми пользуются 90% SEO-компаний, не только не выгодно, но и может быть опасно
+					
+					.email-block.email-block_dark
+						p 
+							| Если вы хотите узнать какие методы
+							br
+							| лучше использовать для продвижения вашего
+							br
+							| сайта, отправьте свой вопрос на почту
+							br
+							a(href="#") linkinfo@marox.digital
+				
+				.sc__content
+					.difference-table.flex
+						.difference-table__row
+							.difference-table__col_first
+								.difference-table__head
+									p 90% SEO-компаний
+							.difference-table__col_first
+								.difference-table__head
+									p Наша компания
+							.difference-table__col
+								.difference-table__item.wrong
+									p Для продвижения сайта используют стандартную схему - покупку ссылок, спамные тексты и накрутку поведенческих факторов с помощью специальных сервисов.
+							.difference-table__col
+								.difference-table__item.correct
+									p Не занимаемся закупкой ссылок, а работаем над ростом естественной ссылочной массы. Проводим ежемесячную планомерную работу над сайтом, которая улучшает его в глазах пользователей и поисковиков
+							.difference-table__col
+								.difference-table__item.wrong
+									p Вы подвергаете свой бизнес большой опасности. В любой момент сайт может попасть под санкции и фильтры, что приводит к огромным потерям времени и денег.
+							.difference-table__col
+								.difference-table__item.correct
+									p Вы получаете высокие позиции в поисковиках, успешно развиваете свой бизнес и планомерно увеличиваете свою прибыль.
+	//- /Difference Section
+
+
+	//- List Section
+	section.list-section.section.section_dark
+		.border-block.border-block_dark
+			.container
+				.sc
+					.sc__aside
+						h3.deco-line.deco-line_short.text-white
+							| Шесть причин
+							br
+							span.text-black работать с нами, а не с ними
+						
+					.sc__content
+						.flex
+							.col-lg-6.pl-0.pr-0
+								ol.o-list.o-list_lg
+									li.text-black Детальные отчеты о работе над вашим проектом
+									li.text-black 100% прозрачная схема работы
+									li.text-black Детальные отчеты о работе над вашим проектом
+									
+							.col-lg-6.pl-0.pr-0
+								ol.o-list.o-list_lg.ci-3
+									li.text-black Уникальный план продвижения вашего проекта
+									li.text-black Использование только лучших методик
+									li.text-black 100% прозрачная схема работы над проектом
+	//- /List Section
+	
+	
+	//- Increase Section
+	include ../sections/increase-section
+	//- /Increase Section
+	
+		
+	//- FAQ Section
+	include ../sections/faq
+	//- /FAQ Section
+	
+	
+	//- Cancel Section
+	include ../sections/cancel
+	//- /Cancel Section
+
+
+	//- Contacts Section
+	include ../sections/contacts

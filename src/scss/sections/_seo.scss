@@ -1,0 +1,180 @@
+.seo {
+  padding-bottom: 64px;
+  &__benefits,
+  &__project {
+    border-top: 1px solid #373F54;
+    border-bottom: 1px solid #373F54;
+
+    .container {
+      border-left: 1px solid #373F54;
+      border-right: 1px solid #373F54;
+      padding-left: 0;
+      padding-right: 0;
+    }  
+  }
+
+  &__item {
+    width: 25%;
+    padding: 96px 40px 56px;
+    border-right: 1px solid #373F54;
+
+    &:last-child {
+      border-right: none;
+    }
+    
+
+    &::before {
+      content: '';
+      display: block;
+      width: 82px;
+      height: 72px;
+      margin-bottom: 64px;
+      background: {
+        repeat: no-repeat;
+        image: url(../img/seo-sprite.png);
+      }
+    }
+
+    &_1 {
+      &::before {
+        background: {
+          position: left center;
+        }
+      }
+    }
+
+    &_2 {
+      &::before {
+        background: {
+          position: -82px center;
+        }
+      }
+    }
+
+    &_3 {
+      &::before {
+        background: {
+          position: -164px center;
+        }
+      }
+    }
+
+    &_4 {
+      &::before {
+        background: {
+          position: right center;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font: {
+      family: $gilroy;
+      size: 36px;
+      weight: 900;
+    }
+    color: $white;
+    margin-bottom: 40px;
+  }
+
+  &__p {
+    font: {
+      family: $gilroy;
+      size: 18px;
+      weight: 300;
+    }
+    color: $white;
+    line-height: 32px;
+    margin-bottom: 0;
+    max-width: 248px;
+  }
+}
+
+
+// Media
+@media ($mw-1680) {
+  .seo {
+    &__item {
+      padding: 72px 32px 40px;
+      &::before {
+        margin-bottom: 40px;
+      }
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+  }
+}
+@media ($mw-1440) {
+  .seo {
+    .container {
+      flex-wrap: wrap;
+    }
+    &__item {
+      //width: 50%;
+      padding: 64px 40px 40px;        
+    }
+
+    &__title {
+      font-size: 24px;
+    }    
+  }
+}
+
+@media ($mw-1024) {
+
+  .seo {
+
+    .flex {
+      flex-direction: column;      
+    }
+
+    &__item {
+      width: 100%;
+      border-bottom: 1px solid #373F54;    
+
+      &:last-child {
+        border-bottom: none;
+      }  
+    }
+
+    &__p {
+      max-width: 100%;
+    }
+  }
+
+}
+
+@media ($mw-768) {
+  .seo {
+    &__title {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    &__p {
+      font-size: 16px;
+    }
+  }
+}
+@media ($mw-600) {
+  .seo {
+    &__item {
+      width: 100%;
+      padding: 48px 24px 32px;
+      border: none;
+      &:nth-child(even) {
+        border-left: none;
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid #373F54;
+      }
+    }
+
+    &__p {
+      max-width: 420px;
+    }
+  }
+}

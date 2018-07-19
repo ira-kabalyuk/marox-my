@@ -1,0 +1,48 @@
+ <section class="section main-blog-section">
+        <div class="container">
+          <div class="main-blog-section">
+            <h2 class="deco-line deco-line_short text-black">Наш блог</h2>
+            <div class="main-blog-wrap">
+             <p class="text-black text-20">Мы с удовольствием делимся своим опытом в интернет-маркетинге и рассказываем об эффективных инструментах и интересных кейсах в своем блоге. Читайте, анализируйте и действуйте! </p>
+             <ul class="blog-list-sm">
+             [mods:news_help::get_list('mod:blog,row:MAIN_POST,meta:1,limit:3')]
+                 {row:MAIN_POST}
+                 <li class="blog-list-sm__item">
+                   <a href="{link}">
+                     <div class="blog-list-sm__img-wrap"><img src="/uploads/news/{meta_face}" alt=""></div>
+                     <div class="blog-list-sm__content-wrap">
+                       <h5 class="blog-list-sm__title">{title}</h5>
+                       <div class="info-block">
+                         <div class="info-block__item"><i class="fa fa-calendar"></i><span class="info-block__value">{day}.{mn}/{year}</span></div>
+                         <div class="info-block__item"><i class="fa fa-eye"></i><span class="info-block__value">{view}</span></div>
+                         <div class="info-block__item"><i class="fa fa-comments-o"></i><span class="info-block__value">1200</span></div>
+                       </div>
+                     </div>
+                     </a>
+                 </li>
+                 {/row}
+                
+                
+               </ul><a class="blog-link" href="/blog/"><span class="menu-icon-wrap"><span class="menu-icon"></span></span><span class="blog-link__text">Все статьи</span></a>
+           
+           <div class="main-form-section">
+             <h4 class="blog-title">Подписаться на обновления</h4>
+             <p class="sidebar-section__text">Вы будете получать подборку полезных статей о продвижении бизнеса, а также проверенные фишки маркетинга и скидки на отраслевые мероприятия</p>
+             <form class="sidebar-form ajax" action="/subscribe/save">
+               <input type="hidden" name="group_id" value="2">
+               <div class="sidebar-form-group"><span class="input input--hoshi">
+                   <input class="input__field input__field--hoshi" type="text" id="input-1" name="name">
+                   <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-1"><i class="fa fa-user"></i><span class="input__label-content input__label-content--hoshi">Как Вас зовут?</span></label></span></div>
+               <div class="sidebar-form-group"><span class="input input--hoshi">
+                   <input class="input__field input__field--hoshi" type="text" id="input-2" name="email">
+                   <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-2"><i class="fa fa-envelope-o"></i><span class="input__label-content input__label-content--hoshi">Ваш e-mail</span></label></span></div>
+               <div class="sidebar-form-group sidebar-button-group">
+                 <button class="btn sidebar-form__btn" type="submit">Подписаться</button>
+                 <p class="sidebar-form__text">
+                    уже подписались 1890 человек</p>
+               </div>
+             </form>
+           </div>
+          </div>       
+        </div> 
+      </section>

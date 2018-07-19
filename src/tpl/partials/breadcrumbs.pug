@@ -1,0 +1,7 @@
+.breadcrumbs
+  a.breadcrumbs__item(href="#") Главная
+  if breadcrumbsCat
+    a.breadcrumbs__item(href="#") #{breadcrumbsCat}
+  if breadcrumbsCurrent
+    a.breadcrumbs__item(href="#") #{breadcrumbsCurrent}
+  

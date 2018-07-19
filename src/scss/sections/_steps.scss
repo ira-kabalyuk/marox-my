@@ -1,0 +1,230 @@
+.steps {
+  padding-bottom: 200px;
+  &__container {
+    padding-top: 120px;
+    border-left: 1px solid $light-grey;
+    border-right: 1px solid $light-grey;
+  }
+
+  &__item {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 128px;
+      height: 128px;
+      margin: 0 auto 40px;
+      border-radius: 50%;
+      background: {
+        color: $white;
+        repeat: no-repeat;
+        image: url(../img/steps-sprite.png);
+      }
+      box-shadow: 0 0 24px rgba($black, .08);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 78%;
+      height: 72px;
+      background: {
+        repeat: no-repeat;
+        position: center;
+        size: contain;
+      }
+      position: absolute;
+      top: 0;
+    }
+
+    &_1 {
+      &::before {
+        background: {
+          position: left center;
+        }
+      }
+
+      &::after {
+        left: 50%;
+        margin-left: 70px;
+        top: 28px;
+        background: {
+          image: url(../img/steps-arrow-1.svg);
+        }
+      }
+    }
+
+    &_2 {
+      &::before {
+        background: {
+          position: center center;
+        }
+      }
+
+      &::after {
+        left: 50%;
+        margin-left: 70px;
+        top: 28px;
+        background: {
+          image: url(../img/steps-arrow-1.svg);
+        }
+      }
+    }
+
+   &_3 {
+      &::before {
+        background: {
+          position: right center;
+        }
+      }
+
+     /* &::after {
+        top: 64px;
+        right: 50%;
+        margin-right: 70px;
+        background: {
+          image: url(../img/steps-arrow-3.svg);
+        }
+      }*/
+    }
+  }
+
+  &__title {
+    font: {
+      size: 32px;
+      weight: 900;
+    }
+    margin-bottom: 24px;
+  }
+
+  &__p {
+    max-width: 304px;
+    margin: 0 auto;
+    font: {
+      size: 18px;
+    }
+    line-height: 32px;
+  }
+
+  &__result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1096px;
+    height: 168px;
+    margin: 176px auto -84px;
+    background-color: #FBFBFB;
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 64px;
+      background: {
+        repeat: no-repeat;
+        position: center;
+        size: contain;
+        image: url(../img/steps-result-icon.svg);
+      }
+
+      position: absolute;
+      left: 50%;
+      margin-left: -32px;
+      top: -32px;
+    }
+
+    p {
+      margin-bottom: 0;
+      font: {
+        family: $gilroy;
+        size: 48px;
+        weight: 900;
+      }
+    }
+  }
+}
+
+
+// Media
+@media ($mw-1680) {
+  .steps {
+    &__item {
+      &::after {
+        width: 72%;
+      }
+    }
+  }
+}
+@media ($mw-1440) {
+  .steps {
+    padding-bottom: 160px;
+    &__item {
+      &::after {
+        width: 62%;
+      }
+
+      &_2 {
+        &::after {
+          width: 62%;
+        }
+      }
+
+      &_3 {
+        &::after {
+          top: 56px;
+        }
+      }
+    }
+
+    &__result {
+      height: 112px;
+      margin: 120px auto -56px;
+      &::before {
+        width: 56px;
+        height: 56px;
+      }
+      p {
+        font-size: 32px;
+      }
+    }
+  }
+}
+@media ($mw-1024) {
+  .steps {
+    &__container {
+      padding-top: 80px;
+      border: none;
+    }
+    &__item {
+      margin-bottom: 64px;
+      &::after {
+        content: none;
+      }
+    }
+    &__title {
+      font-size: 24px;
+    }
+    &__p {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 344px;
+    }
+    &__result {
+      max-width: 88%;
+      height: auto;
+      margin-top: 64px;
+      padding: 32px 16px;
+      &::before {
+        width: 40px;
+        height: 40px;
+        top: -20px;
+      }
+      p {
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+  }
+}

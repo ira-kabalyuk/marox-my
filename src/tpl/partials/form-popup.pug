@@ -1,0 +1,26 @@
+.form-popup
+	.form-popup__container
+		
+		.form-popup__body
+			.container
+				.form-wrap
+					p.form-popup__title Отправить заявку
+					.form-section.form-section_nav
+						.form-section__content
+							form(id="", method="", action="")
+								each item in topForm
+									.form-group.form-group_inline
+										label.form-group__label #{item.label}
+										div(class=item.isError ? 'form-group__input input-group input-group_error' : 'form-group__input input-group')
+											input(type=`${item.inputType}`, name="")
+											if item.isError
+												span.input-group__error #{item.error}
+											else
+												span(class="input-group__error hidden") #{item.error}
+											
+								button.btn.btn_icon.form-group__btn Отправить
+					button.hamburger.hamburger--squeeze.form-close-btn.is-active(type="button")
+						span.hamburger-box
+							span.hamburger-inner
+
+

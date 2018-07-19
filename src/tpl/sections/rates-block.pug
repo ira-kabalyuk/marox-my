@@ -1,0 +1,11 @@
+.rates
+  each item in rate
+    div(class=item.popular ? "rates__item is-popular" : "rates__item")
+      .rates__overlay
+      .rates__content
+        p.rates__type #{item.type}
+        p.rates__price !{item.price}
+        p.rates__descr #{item.description}
+        p.rates__ad #{item.ad}
+        
+      a.btn.rates__btn(href="#") Заказать

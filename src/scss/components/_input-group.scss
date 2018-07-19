@@ -1,0 +1,92 @@
+.input-group {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="number"] {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed $light-grey;
+
+    font: {
+      family: $gilroy;
+      size: 24px;
+      weight: 300;
+    }
+    line-height: 40px;
+    @include trans;
+
+    &:focus {
+      border: {
+        bottom: 1px solid $blue;
+      }
+    }
+  }
+
+  &_error {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"] {
+      border-bottom: 1px solid $red;
+      &:focus {
+        border-color: $red;
+      }
+    }
+  }
+
+  &__error {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    font: {
+      family: $gilroy;
+      size: 18px;
+      weight: 900;
+    }
+    line-height: 24px;
+    color: $red;
+    pointer-events: none;
+  }
+}
+
+// Media
+@media ($mw-1680) {
+  .input-group {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"] {
+      font-size: 20px;
+      height: 32px;
+    }
+
+    &__error {
+      font-size: 16px;
+    }
+  }
+}
+@media ($mw-768) {
+  .input-group {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"] {
+      font-size: 16px;
+      height: 24px;
+    }
+
+    &__error {
+      font-size: 12px;
+    }
+  }
+}

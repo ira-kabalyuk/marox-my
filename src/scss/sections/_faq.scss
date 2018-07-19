@@ -1,0 +1,145 @@
+.faq {
+  padding: 192px 0 240px;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 474px;
+    height: 746px;
+    background: {
+      repeat: no-repeat;
+      position: center;
+      size: contain;
+    }
+    position: absolute;
+  }
+  &::before {
+    background: {
+      image: url(../img/faq-bg-left.png);
+    }
+    left: -104px;
+    bottom: -178px;
+  }
+  &::after {
+    background: {
+      image: url(../img/faq-bg-right.png);
+    }
+    right: -48px;
+    top: -16px;
+  }
+
+  .sc {
+    &__aside {
+      padding: 0 64px;
+      p {
+        font: {
+          family: $gilroy;
+          size: 18px;
+          weight: 300;
+        }
+        line-height: 32px;
+      }
+
+      .email-block {
+        margin-top: 55px;
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &-questions {
+    width: 100%;
+    max-width: 888px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 8px;
+
+    &__item {
+      background-color: rgba($black, 0);
+      border: none;
+      border-radius: 0;
+      margin: 0 auto 88px;
+      box-shadow: none;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__head {
+      padding-bottom: 16px;
+    }
+
+    &__link {
+      font: {
+        family: $gilroy;
+        size: 24px;
+        weight: 900;
+      }
+      color: $black;
+      border-bottom: 1px dashed #B2B2B2;
+      margin-bottom: 16px;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &[aria-expanded="true"] {
+        text-decoration: none;
+        border-color: rgba(#B2B2B2, 0);
+        color: $blue;
+      }
+    }
+
+    &__body {
+      p {
+        font-size: 16px;
+        line-height: 32px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+
+// Media
+@media ($mw-1680) {
+  .faq {
+    padding: 120px 0 160px;
+  }
+}
+@media ($mw-1440) {
+  .faq {
+    padding: 80px 0;
+
+    .sc {
+      &__aside {
+        margin-bottom: 80px;
+        .email-block {
+          margin-top: 40px;
+        }
+      }
+    }
+
+    &-questions {
+      max-width: 100%;
+
+      &__item {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+@media ($mw-768) {
+  .faq-questions {
+    &__link {
+      font-size: 20px;
+    }
+  }
+}

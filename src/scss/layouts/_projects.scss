@@ -1,0 +1,152 @@
+
+.team-block {
+
+		.projects {
+			padding-top: 0;  
+		}
+}
+
+.service-section {
+		position: relative;
+		z-index: 1;
+
+		&:before {
+			content:"";
+			background: url(../img/rates-bg-dark.png) no-repeat;
+			width: 762px;
+			height: 485px;
+			display: block;
+
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: -1;
+		}		
+}
+
+
+.services {
+		font-family: "Gilroy", sans-serif;
+		margin-left: -8px;
+		margin-right: -8px;
+		display: flex;
+
+		.rates {
+
+				&__price {
+						font-size: 32px;
+						margin-bottom: 73px;
+
+						.text-bold {
+							font-size: 24px;
+						}
+				}
+
+				&__sum {
+					font-size: 56px;
+				}	
+
+				&__descr {
+					margin-bottom: 82px;
+					min-height: auto;
+				}			
+		}
+
+			&__item {
+			width: calc(50% - 16px);
+			margin: 0 8px;
+			background: #fff;
+
+			.rates__content {
+					text-align: center;
+					padding: 60px 75px;
+
+					&:before {
+							width: 373px;
+							height: 256px;
+							top: -44px;
+							z-index: -1;
+							background-size: contain;
+						}
+				}
+		}
+}
+
+@media ($mw-1200) {
+
+	.services {
+
+		&__item {
+
+			.rates__content {
+				padding: 60px 30px;
+			} 
+		}
+	}
+}
+
+@media ($mw-1024) {
+
+	.services {			
+
+		.text-40 {
+				font-size: 24px;
+			}		
+
+		.rates {
+
+			&__price {
+				font-size: 24px;
+			}		
+
+			&__sum {
+				font-size: 40px;
+			}
+		}	
+	}	
+}
+
+
+@media ($mw-768) {
+
+	.services {			
+		flex-direction: column;
+
+			&__item {
+				width: calc(100% - 16px);
+				margin-bottom: 16px;
+
+				&:last-child {
+						margin-bottom: 0;
+				}
+			}
+			.rates {			
+			
+			&__descr {
+				margin-bottom:  50px;
+			}
+
+			&__price {
+				margin-bottom: 50px;
+			}
+		}
+	}
+}
+
+@media ($mw-415) {
+
+	.services {		
+
+		.rates {
+
+			&__price {
+				font-size: 18px;
+			}
+
+			&__sum {
+				font-size: 32px;
+			}
+		}	
+	}	
+}
+

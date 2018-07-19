@@ -1,0 +1,72 @@
+nav.navigation
+  .navigation__container
+    .header.navigation__header
+      .container.header__container
+        a.header__logo(href="/")
+          img.img-responsive(src="img/logo-dark.svg", alt="Marox DIgital")
+            
+        .header__contacts
+          a(href="mailto:manymany@marox.digital") manymany@marox.digital
+          a(href="tel:+380445697795") +380(44) 569-77-95
+          
+    .navigation__body
+      .container
+        .row
+          .col-sm-4
+            p.navigation__title Разделы сайта
+            
+            ul.navigation__list
+              each li in nav
+                li
+                  a(href=`${li.href}`) #{li.link} 
+                  if li.subMenu
+                    ul
+                      each subLi in li.subMenu
+                        li
+                          a(href=`${subLi.href}`) #{subLi.link}
+            
+          .col-sm-8.hidden-xs
+            p.navigation__title Отправить заявку
+            
+            .form-section.form-section_nav
+              .form-section__content
+                form(id="", method="", action="")
+                  each item in topForm
+                    .form-group.form-group_inline
+                      label.form-group__label #{item.label}
+                      div(class=item.isError ? 'form-group__input input-group input-group_error' : 'form-group__input input-group')
+                        input(type=`${item.inputType}`, name="")
+                        if item.isError
+                          span.input-group__error #{item.error}
+                        else
+                          span(class="input-group__error hidden") #{item.error}
+                        
+                  button.btn.btn_icon.form-group__btn Отправить
+
+
+    .navigation__footer
+      .container
+        .row.flex
+          .col-sm-4
+            .contacts__socials
+              a(href="#")
+                i.fa.fa-facebook-official(aria-hidden="true")
+                | Facebook
+                
+              a(href="#")
+                i.fa.fa-linkedin-square(aria-hidden="true")
+                | LinkedIn
+                
+              a(href="#")
+                i.fa.fa-twitter(aria-hidden="true")
+                | Twitter
+            
+          .col-sm-8
+            .row.flex.navigation__contacts
+              .col-lg-6
+                p.contacts__text Нужна консультация — пишите:
+                a.contacts__link(href="mailto:manymany@marox.digital") manymany@marox.digital
+                
+              .col-lg-6
+                p.contacts__text или звоните
+                a.contacts__link(href="tel:380445697795") +380(44) 569-77-95

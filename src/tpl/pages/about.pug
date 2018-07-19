@@ -1,0 +1,73 @@
+extends ../template.pug
+
+block title
+	- title = pages.about.title
+	
+block breadcrumbs
+	- breadcrumbsCat = pages.about.category
+	- breadcrumbsCurrent = pages.about.title
+
+//- Top Section
+block sectionTitles
+	- h1           = pages.about.h1
+	- subTitle     = pages.about.subTitle
+	- sectionClass = pages.about.form
+	
+block topSectionContent
+//- //Top Section
+
+block content
+	section.team-block.border-block_solid.border-block_no-bottom
+		.container.clearfix
+			h2.deco-line Команда
+			.flex-block
+				.left-column
+					p.text-20 Обожаем решать бизнес-задачи и помогать вам зарабатывать больше. 
+					p.text-20 На старте работ мы формируем пул специалистов, необходимый для каждого конкретного проекта:будь то дизайнер, программист, интернет­маркетолог, SMM-специалист или копирайтер.
+					ul.team-block__list
+						li.team-block__item.team-block__title-item Команда вашего проекта:
+						li.team-block__item
+							.icon-wrap
+								i.icon.icon-1
+							span.team-block__item-text Дизайнер UI/UX
+						li.team-block__item
+							.icon-wrap
+								i.icon.icon-2
+							span.team-block__item-text Front-end девелопер
+						li.team-block__item
+							.icon-wrap
+								i.icon.icon-3
+							span.team-block__item-text Программист
+						li.team-block__item
+							.icon-wrap
+								i.icon.icon-4
+							span.team-block__item-text Специалист по контексту
+				.right-column
+					ul.team-descr__list
+						each item in pages.about.teamItem
+							li.team-descr__item
+								.team-descr_item-wrap
+									.team-descr__img-wrap
+										img(src=`${item.img}`, alt="")
+									p.team-descr__name !{item.name}
+									p.team-descr__position #{item.position}
+	section.about-block.block-border
+		ul.about-block__list
+			each item in pages.about.aboutItem
+				li.about-block__item
+					.container.clearfix
+						h2.deco-line #{item.title}
+						.about-block__item-wrap
+							.about-block__content-wrap
+								p.text-20 #{item.text}
+							.about-block__logo-wrap
+								each img in item.logoImg
+									img(src=`${img}`, alt="")
+									
+	//- Increase Section
+	include ../sections/increase-section
+	//- /Increase Section
+
+	//- Contacts Section
+	include ../sections/contacts
+

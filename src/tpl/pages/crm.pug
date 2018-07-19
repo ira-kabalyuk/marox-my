@@ -1,0 +1,130 @@
+extends ../template-2.pug
+
+block title
+	- title = pages.crm.title
+	
+block breadcrumbs
+	- breadcrumbsCat = pages.crm.category
+	- breadcrumbsCurrent = pages.crm.title
+
+//- Top Section
+block sectionTitles
+	- h1           = pages.crm.h1
+	- subTitle     = pages.crm.subTitle
+	- sectionClass = pages.crm.form
+	
+block topSectionContent
+
+	.container
+		ul.top-section__list.crm-top-section__list
+			li.top-section__item
+				button.btn.btn_icon.form-group__btn Отправить заявку
+			li.top-section__item.top-section__item_2
+				.top-section-list__text-wrap
+					h5.top-section-list__title.text-black Презентация
+					a.top-section-list__link(href="") pdf, 2mb
+
+block crmTopBlock
+	.border-block_dark.crm-top-block
+		.container
+			ul.crm-top-block__list
+				each item in pages.crm.topList
+					li(class="crm-top-block__item " + item.class)
+						p.crm-top-block__title #{item.title}
+						p.crm-top-block__text #{item.p}
+
+block content
+
+	section.section
+		.container 
+			h2.deco-line
+				span Хотите почувствовать 
+				| рост прибыли и снижение издержек?
+			p.sub-title_black С помощью CRM-системы все процессы вашей компании будут автоматизированы. У Вас все будет под контролем! А эффективность вырастет по многим показателям
+		.srm-content-block.border-block
+			.container
+				ul.crm-content__list
+					each item in pages.crm.contentList
+						li.crm-content__item
+							p.crm-content__title #{item.title}
+							p.crm-content__text #{item.p}
+
+	section.section.crm-dev-block#tabs
+		.container 
+			h2.deco-line 
+				span Мы 
+				| настроим 
+				span и адаптируем crm-систему 
+				| под ваши бизнес процессы
+			p.sub-title_black Всё, что так необходимо для вашего бизнеса, начиная от простой клиентской базы и заканчивая финансовым учетом
+			.crm-dev-content
+				ul.tabs
+					li.active(rel="tab1")
+						span Расписание
+							i.fa.fa-long-arrow-right 
+					li(rel="tab2")
+						span Процент конверсии
+							i.fa.fa-long-arrow-right 
+					li(rel="tab3")
+						span Средний чек
+							i.fa.fa-long-arrow-right 
+					li(rel="tab4")
+						span Стоимость клика
+							i.fa.fa-long-arrow-right 
+					li(rel="tab5")
+						span Количество заказов
+							i.fa.fa-long-arrow-right 
+					li(rel="tab6")
+						span Выручка
+							i.fa.fa-long-arrow-right 
+					
+				.tab_container
+					p(rel="tab1").d_active.tab_drawer_heading Расписание
+						i.fa.fa-long-arrow-right 
+					div(id="tab1").tab_content 
+						p.tab_content_title  Расписание 
+						.tab_content_wrap
+							.tab_content_text-wrap
+								p.tab_content_text Сервис дает возможность взаимодействовать с пользователем в личных сообщениях. Инструмент организует работу с клиентами и может заменить телефонные звонки, SMS-рассылки и онлайн-консультантов. Кнопка отправки сообщения сообщества доступна на десктопах и смартфонах пользователей. В сообщениях остается доступной вся история диалога, что дает возможность выстраивать долгое общение, допродажи и кросс-продажи.
+								p.tab_content_text В сообщениях остается доступной вся история диалога, что дает возможность выстраивать долгое общение, допродажи и кросс-продажи.
+							.tab_content_img-wrap
+								img(src="img/img1.jpg", alt="")
+								p.img-name Название
+								p.img-descr Описание
+
+					p(rel="tab2").d_active.tab_drawer_heading Процент конверсии
+						i.fa.fa-long-arrow-right 
+					div(id="tab2").tab_content 
+						p.tab_content_title  Процент конверсии 
+						p.tab_content_text Сервис дает возможность взаимодействовать с пользователем в личных сообщениях. Инструмент организует работу с клиентами и может заменить телефонные звонки, SMS-рассылки и онлайн-консультантов. Кнопка отправки сообщения сообщества доступна на десктопах и смартфонах пользователей. В сообщениях остается доступной вся история диалога, что дает возможность выстраивать долгое общение, допродажи и кросс-продажи.
+
+					p(rel="tab3").d_active.tab_drawer_heading Средний чек
+						i.fa.fa-long-arrow-right 
+					div(id="tab3").tab_content 
+						p.tab_content_title  Средний чек
+						p.tab_content_text Сервис дает возможность взаимодействовать с пользователем в личных сообщениях. Инструмент организует работу с клиентами и может заменить телефонные звонки, SMS-рассылки и онлайн-консультантов. Кнопка отправки сообщения сообщества доступна на десктопах и смартфонах пользователей. В сообщениях остается доступной вся история диалога, что дает возможность выстраивать долгое общение, допродажи и кросс-продажи.
+
+					p(rel="tab4").d_active.tab_drawer_heading Стоимость клика
+						i.fa.fa-long-arrow-right 
+					div(id="tab4").tab_content 
+						p.tab_content_title  Стоимость клика
+						p.tab_content_text Сервис дает возможность взаимодействовать с пользователем в личных сообщениях. Инструмент организует работу с клиентами и может заменить телефонные звонки, SMS-рассылки и онлайн-консультантов. Кнопка отправки сообщения сообщества доступна на десктопах и смартфонах пользователей. В сообщениях остается доступной вся история диалога, что дает возможность выстраивать долгое общение, допродажи и кросс-продажи.
+
+					p(rel="tab5").d_active.tab_drawer_heading  Количество заказов
+						i.fa.fa-long-arrow-right 
+					div(id="tab5").tab_content 
+						p.tab_content_title   Количество заказов
+						p.tab_content_text Сервис дает возможность взаимодействовать с пользователем в личных сообщениях. Инструмент организует работу с клиентами и может заменить телефонные звонки, SMS-рассылки и онлайн-консультантов. Кнопка отправки сообщения сообщества доступна на десктопах и смартфонах пользователей. В сообщениях остается доступной вся история диалога, что дает возможность выстраивать долгое общение, допродажи и кросс-продажи.
+
+					p(rel="tab6").d_active.tab_drawer_heading Выручка
+						i.fa.fa-long-arrow-right 
+					div(id="tab6").tab_content 
+						p.tab_content_title  Выручка
+						p.tab_content_text Сервис дает возможность взаимодействовать с пользователем в личных сообщениях. Инструмент организует работу с клиентами и может заменить телефонные звонки, SMS-рассылки и онлайн-консультантов. Кнопка отправки сообщения сообщества доступна на десктопах и смартфонах пользователей. В сообщениях остается доступной вся история диалога, что дает возможность выстраивать долгое общение, допродажи и кросс-продажи.
+
+	//- Increase Section
+	include ../sections/increase-section
+	//- /Increase Section
+
+	//- Contacts Section
+	include ../sections/contacts

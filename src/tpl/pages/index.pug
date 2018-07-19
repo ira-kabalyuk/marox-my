@@ -1,0 +1,27 @@
+extends ../template.pug
+
+block title
+  - title = pages.index.title
+  
+block breadcrumbs
+  - breadcrumbsCat = pages.index.category
+  - breadcrumbsCurrent = pages.index.title
+
+//- Top Section
+block sectionTitles
+  - h1           = pages.index.h1
+  - subTitle     = pages.index.subTitle
+  - sectionClass = pages.index.form
+  
+block topSectionContent
+//- //Top Section
+    
+block content
+  
+  .container
+    h1 Index Page
+    
+    ol
+      each page in pages
+        li
+          a(href=`${page.url}`, target="_blank") #{page.pageName}

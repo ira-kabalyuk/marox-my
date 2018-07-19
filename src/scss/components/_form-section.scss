@@ -1,0 +1,124 @@
+.form-section {
+  position: relative;
+
+  &__descr {
+    padding: 88px 64px;
+    @include gradient($blue, $green, 0%, 100%, 135deg);
+  }
+
+  &__dark-descr {
+     padding: 88px 64px;
+    background: $graphite;
+  }
+
+  &__title {
+    margin: 0 auto 16px;
+    font-weight: 900;
+    color: $white;
+  }
+
+  &__p {
+    font: {
+      family: $gilroy;
+      size: 28px;
+      weight: 300;
+    }
+    line-height: 40px;
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  &__content {
+    position: relative;
+    padding: 96px 120px 96px 136px;
+    background-color: $white;
+    box-shadow: 0 0 40px rgba($black, .12);
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 4px;
+      background-color: $dark-blue;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &_nav {
+    .form-section__content {
+      padding: 0;
+      box-shadow: none;
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  .email-block {
+    margin-top: 72px;
+  }
+}
+
+// Media
+@media ($mw-1680) {
+  .form-section {
+    &__descr {
+      padding: 48px 40px;
+    }
+
+    &__dark-descr {
+      padding: 48px 40px;
+    }
+
+    &__content {
+      padding: 56px 64px;
+    }
+
+    &__p {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+}
+@media ($mw-1024) {
+  .form-section {
+    &__descr {
+      padding: 32px 40px;
+    }
+
+    &__dark-descr {
+      padding: 32px 40px;
+    }
+
+    &__content {
+      padding: 32px 40px;
+    }
+
+    .email-block {
+      margin-top: 48px;
+    }
+  }
+}
+@media ($mw-768) {
+  .form-section {
+    &__descr {
+      padding: 24px 16px;
+    }
+
+    &__dark-descr {
+      padding: 24px 16px;
+    }
+
+    &__content {
+      padding: 24px 16px;
+    }
+
+    &__p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

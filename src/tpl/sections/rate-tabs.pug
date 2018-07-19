@@ -1,0 +1,28 @@
+section.rate.section.section_dark
+	.container
+		h2.text-black.text-white.deco-line Наши тарифы
+
+		.rate-tabs
+			ul(class="rate-tabs__list", role="tablist")
+				li.active(role="presentation")
+					a(href="#google", aria-controls="google", role="tab", data-toggle="tab") Google
+				li(role="presentation")
+					a(href="#yandex", aria-controls="yandex", role="tab", data-toggle="tab") Yandex
+				li(role="presentation")
+					a(href="#facebook", aria-controls="facebook", role="tab", data-toggle="tab") Facebook
+			
+			.tab-content
+				.tab-pane.active.fade.in(role="tabpanel", id="google")
+					p.rate__lead Цена за настройку и ведение РК в Google
+					include rates-block
+					include rate-includes
+					
+				.tab-pane.fade(role="tabpanel", id="yandex")
+					p.rate__lead Цена за настройку и ведение РК в Yandex
+					include rates-block
+					include rate-includes
+					
+				.tab-pane.fade(role="tabpanel", id="facebook")
+					p.rate__lead Цена за настройку и ведение РК в Facebook
+					include rates-block	
+					include rate-includes

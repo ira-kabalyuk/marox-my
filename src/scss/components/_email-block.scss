@@ -1,0 +1,42 @@
+.email-block {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 52px;
+    background: {
+      image: url(../img/email.png);
+      repeat: no-repeat;
+      size: contain;
+      position: center;
+    }
+    margin-bottom: 16px;
+  }
+
+  p {
+    font: {
+      family: $gilroy;
+      size: 18px;
+      weight: 900;
+    }
+    line-height: 24px;
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  &_dark {
+    &::before {
+      background: {
+        image: url(../img/email-color.png);
+      }
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+      color: $black;
+    }
+  }
+}

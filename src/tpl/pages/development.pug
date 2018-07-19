@@ -1,0 +1,142 @@
+extends ../template.pug
+
+block title
+	- title = pages.development.title
+	
+block breadcrumbs
+	- breadcrumbsCat = pages.development.category
+	- breadcrumbsCurrent = pages.development.title
+
+//- Top Section
+block sectionTitles
+	- h1           = pages.development.h1
+	- subTitle     = pages.development.subTitle
+	- sectionClass = pages.development.form
+	
+block topSectionContent
+
+	ul.top-section__list
+		each item in pages.development.cat
+			li(class="top-section__item " + item.class)
+				.top-section-list__text-wrap
+					h5.top-section-list__title.text-black #{item.title}
+					a.top-section-list__link(href="") #{item.link}
+
+
+block topForm
+	include ../sections/top-form
+
+block content
+	section.section
+		.container
+			h2.deco-line.text-black Что такое лендосайт?
+			p.sub-title Каждая продуктовая страница лендо-сайта спроектирована так, словно посетитель не видел остального сайта и принимает решение, глядя на неё. При этом есть общая навигация между товарами и услугами, главная и вспомогательные страницы
+
+		.section.section_dark.dev-list-section
+			.border-block.border-block_dark
+				.container
+					.row
+						.dev-list-block
+							.sc.sc-top
+								.sc__aside.sc-top__aside
+									h3.deco-line.deco-line_short.text-white.text-black Страница сайта — тоже лендинг
+								.sc__content.sc-top__content
+									ol.o-list.o-list_lg
+										each item in pages.development.num
+											li(class="text-black " + item.class)
+												.how-we-work__item
+													p.how-we-work__lead !{item.p}
+			.container
+				.row
+					.why-we
+						p.why-we__title.text-white
+							span На обработку заявок и продукт мы не влияем, они останутся за вами.
+							br
+							| С лендингом и рекламой поможем мы.
+
+			.border-block.border-block_dark.list-section
+				.container
+					.row
+						.sc
+							.sc__aside
+								p.deco-line.deco-line_short.text-white
+									span.text-black Мы исключаем конвейер и шаблонность, 
+									br
+									| при этом четко придерживаемся строгих бизнес-процессов
+							.sc__content
+								.flex
+									.col-md-12.pl-0.pr-0
+										ol.o-list.o-list_lg.o-list_dec
+											li.text-black Мы разбираемся как компания заказчика осуществляет продажи
+												span.o-list__num 1
+											li.text-black Cобираем необходимые материалы.
+												span.o-list__num 2
+											li.text-black Продумываем структуру и функционал сайт
+												span.o-list__num 3
+											li.text-black Утверждаем с клиентом
+												span.o-list__num 4
+											li.text-black.last-item.text-gradient.text-black
+												span.o-list__num.text-gradient.text-black 5
+												span.text-gradient.text-black Делаем и запускаем
+	section.project-section.dev.project-section
+		.border-block
+			.container
+				h2.deco-line.text-black Проекты, которые мы реализовали
+				p.sub-title Успешные кейсы — всегда лучше слов. Посмотрите примеры нашей эффективной работы и ее результаты.
+
+				.projects
+					each row in projects
+						.projects__row
+							each item in row
+								div(class=item.grow ? "projects__item projects__item_grow" : "projects__item")
+									.projects__item-container
+									p.projects__descr #{item.descr}
+									h3.projects__title #{item.title}
+									a(href="#").projects__more Смотреть кейс
+
+				.project-section__footer.flex
+					p.text-gradient.text-black.project-section__lead Всего более 120 реализованных проектов
+
+					a.btn.btn_wide(href="#") Смотреть все кейсы
+	section.customers-section
+		.container
+			h2.deco-line.text-black Наши клиенты
+			.customers__table
+				.customers__table_item.customers__table_first-item
+					span.customers-color
+					span
+						i.text-gradient 20%
+				.customers__table_item.customers__table_second-item
+					span
+						i.text-gradient 45%
+				.customers__table_item.customers__table_last-item
+					span
+						i.text-gradient 25%
+				.customers__table_first-item.customers__table_font Федеральные ритейлеры и компании имеющие большую сбытовую сеть
+				.customers__table_second-item.customers__table_font Производители товаров
+				.customers__table_last-item.customers__table_font Компании, для которых сайт является основным источником продаж
+
+	//- Rate section
+	include ../sections/rate-horisontal
+	//- /Rate section
+	section.rate-add-section.section_dark
+		.rate__includes
+		.container
+			h2.deco-line.text-black.text-white По каждому типу сайтов работы также включают
+		.rate__includes-wrap
+			.container
+				ul.rate__includes-list
+					each item in pages.development.rateInc
+						li.rate__includes-item
+							p.text-black.text-white #{item.p}
+
+	//- /List Section
+
+
+	//- Increase Section
+	include ../sections/increase-section
+	//- /Increase Section
+	//- Contacts Section
+	include ../sections/contacts
+
+

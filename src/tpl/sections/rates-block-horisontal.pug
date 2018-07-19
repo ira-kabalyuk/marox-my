@@ -1,0 +1,13 @@
+.rates
+	each item in pages.development.rate	
+		div(class=item.popular ? "rates__item" : "rates__item")
+			.rates__overlay
+			.rates__content
+				.rates__content-wrap
+					p.rates__type #{item.type}
+					p.rates__price !{item.price}
+				.rates__content-wrap
+					ul.rates__descr !{item.description}
+				.rates__content-wrap
+					a(href="").rates__ad #{item.ad}
+					a.btn.rates__btn(href="#") Подробнее

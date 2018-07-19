@@ -1,0 +1,193 @@
+window.Mod_htm={
+modlink:'',
+PID:0,
+HistoryId:0,
+	
+open_fold: function(id){
+ 	 Smart.load_curl('#div_content','{MOD_LINK}/?adr=get_content&pid='+id+'&aj='+Math.random());
+    return false;
+},
+
+	//функция удаления страниц
+DelSelectPage:function(){
+	var	data=new Array();
+	var self=this;
+$('input.idpage:checked').each(function(i){
+data.push(this.value);
+});
+if(data.length==0){ alert("Вы не отметили ни одной  страницы!"); return;}
+Smart.promptBox({
+	title:'Удаление страниц',
+	data:'Вы действительно хотите удалить страницы <b>'+data.join(',')+'</b> ?',
+	callback:function(){
+		Smart.load_curl({div:'#div_content',url:self.modlink+'&act=del_pages&pid='+self.PID+'&pages='+data.join(',')});
+	}
+	});
+	},
+	
+EditPage:function(targ){
+	var self=this;
+		var rel=$(targ).parent().attr('lang').split("-");
+		Smart.load_curl({
+			div:'#div_content',
+			url:self.modlink+'&act=edit&el_id='+rel[0]+'&pid='+rel[1],
+			callback:function(){
+				self.MakeAccord('#my_form');
+			}
+			});
+},
+OpenFolder:function(tag){
+	Smart.load_curl({
+			div:'#div_content',
+			url:this.modlink+'&pid='+$(tag).attr('lang')});
+},
+
+EditParam:function(targ){
+		var self=this;
+		var rel=$(targ).parent().attr('lang').split("-");
+		var url=self.modlink+'&pid='+rel[1]+'&el_id='+rel[0]+'&act=get_set';
+		//Smart.load_curl('#cach_internal',url);
+		Smart.load_dialog({url:url,title:'Свойства страницы',
+		ajform:true,
+		modal:true,evl:function(){
+			self.MakeAccord('#accord');
+		}});
+},
+OnoffPage:function(targ){
+		var self=this;
+		var id=$(targ).data('id');
+		$(targ).html('<i class="fa fa-gear fa-spin"></i>');
+	
+		$.ajax({
+			url:this.modlink+'&act=onoff&el_id='+id,
+			type:'GET',
+			success:function(d){
+				console.log(d);
+				$(targ).html('<i class="fa fa-power-off"></i>');
+				if(d=='on'){
+				$(targ).removeClass('btn-default').addClass('btn-success');
+			}else{
+				$(targ).removeClass('btn-success').addClass('btn-default');
+			}
+			}
+		});
+},
+GetHistory:function(targ){
+		var rel=$(targ).parent().attr('lang').split("-");
+		this.PID=rel[0];
+	Smart.load_dialog({
+	url:this.modlink+'&act=get_history&el_id='+rel[0],
+	title:'История страницы'	
+	});
+},
+AddPage:function(targ){
+			var self=this;
+			Smart.load_curl({
+			div:'#div_content',
+			url:self.modlink+'&act=edit&pid='+self.PID,
+			callback:function(){
+				self.MakeAccord('#my_form');
+			}});
+},
+MakeAccord:function(div){
+				Smart.makeAlign(div+' .set label');
+				Smart.makeAccord({div:div,open:['content','editor']});
+},
+ChangeParent:function(id){
+	var TempCor;
+	var self=this;
+$('<div><ul id="treecor" class="treeview">'+$('#tree').html()+'</ul></div>').dialog({
+   modal: true,
+   title:'Принадлежность к разделу',
+   buttons:{
+    "OK": function(){
+    	var pid=$(TempCor).attr('title');
+    	if(self.PAGE_ID!=pid){
+    		$(id).find('span').html($(TempCor).html());
+        $(id).find('input').val(pid);
+      }
+			  $("#treecor").remove();
+       	$(this).dialog('destroy');
+        },
+   		 "Отмена": function(){$("#treecor").remove();$(this).dialog('destroy');}
+   		}
+    
+	});
+        $("#treecor").treeview({
+				collapsed: false,
+				animated: "fast"});
+                 $('#treecor span').removeClass('active');
+                 $('#treecor span[title="'+$('#phaser').val()+'"]').addClass('active');
+                 
+             $('#treecor span').click(function () {
+			     $('#treecor span').removeClass('active');
+			     $(this).addClass('active');
+							TempCor=this;
+          });
+
+},
+
+SelectBackup:function(obj){
+	    $('#history td').css("background","#ffffff");
+    $(obj).parent().parent().find('td').css("background","#01FF01");
+    $('#h_restore button').attr('disabled',false);
+    this.HistoryId=$(obj).val();
+    $('#hisid').html(this.HistoryId);	
+},
+RestoreBackup:function(){
+	if(Smart.DialogBox.length) Smart.DialogBox.remove();
+    Smart.load_curl('#div_content',this.modlink+'&el_id='+this.PID+'&back_id='+this.HistoryId+'&act=restore');
+ },
+MarkAsBackup:function(){
+   $('#history').parent().load(this.modlink+'&el_id='+this.PID+'&back_id='+this.HistoryId+'&act=mark');
+ }, 
+ClearBackupHistory:function(){
+   $('#history').parent().load(this.modlink+'&el_id='+this.PID+'&act=clear');
+ },
+ClearAllBackupHistory:function(){
+   $('#history').parent().load(this.modlink+'&el_id='+this.PID+'&act=clear&hid=all');
+ },
+
+SetParentRoot:function(tar){
+	console.log(tar);
+	var id=$(tar).find('input').val();
+	var val=$('#tree span[title="'+id+'"]').html();
+	console.log(id,val);
+	$(tar).find('span').html(val);
+	$(tar).click(function(){Mod_htm.ChangeParent(this); return false;});
+},
+drag_icon:function(){
+	var self=this;
+	var page='';
+    $('#pagelist span.myico').draggable({ opacity: 0.7,
+    cursor: "pointer", 
+    start: function(event, ui){
+        page=$(this).attr('lang');
+    $("#tree li span").bind("mouseup",function (e) {
+         $("#tree li span").unbind('mouseup');
+          self.move_pages(page,this);
+    });     
+    },
+   cursorAt: { top: -10, left: -10 },
+   stop: function(){$("#tree li span").unbind('mouseup');},
+    helper: function( event ){
+				return $( "<div class='ui-widget-content t8v'>Перетащи  указатель курсора<br> на название раздела,<br/> в который нужно скопировать<br/>страницу </div>");
+                }
+                });
+                
+       
+},
+move_pages:function(page,fold){
+	var self=this;
+    var moves=$(fold).attr('title');
+   $('<div style="min-width:300px;height:auto;"><p><span>переместить страницу </span><b>'+page+'</b> в папку <b>'+$(fold).html()+'</b> <span> ?</span></p></div>').dialog({
+   title: 'Перемещение страниц сайта',
+   buttons: {
+   "Ok": function(){
+   Smart.load_curl('#div_content',self.modlink+'&act=move_page&par_id='+self.PID+'&page_id='+page+'&fold_id='+moves,function(){self.drag_icon()});
+    $(this).dialog("close");},
+   "Oтмена":function(){$(this).dialog("close");}}
+});
+}
+
+}

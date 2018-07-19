@@ -1,0 +1,17 @@
+.main {
+  overflow: hidden;
+  padding-left: 112px;
+  position: relative;
+}
+
+// Media
+@media ($mw-1200) {
+  .main {
+    padding-left: 80px;
+  }
+}
+@media ($mw-1024) {
+  .main {
+    padding-left: 0;
+  }
+}

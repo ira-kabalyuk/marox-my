@@ -1,0 +1,19 @@
+.sub-title {
+  font: {
+    family: $gilroy;
+    size: 20px;
+    weight: 300;
+  }
+  margin-bottom: 0;
+
+  &_black {
+      font: {
+      family: $gilroy;
+      size: 24px;
+      weight: 900;
+    }
+  }
+}
+
+
+

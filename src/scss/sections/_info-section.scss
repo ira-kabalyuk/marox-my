@@ -1,0 +1,21 @@
+.info-section {
+  &__p {
+    font: {
+      family: $gilroy;
+      size: 24px;
+    }
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media ($mw-768) {
+  .info-section {
+    &__p {
+      font-size: 20px;
+    }
+  }
+}

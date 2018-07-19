@@ -1,0 +1,46 @@
+include globals/global-vars.pug
+
+doctype
+html
+  //- Head
+  include partials/head
+    
+  //- Body
+  body
+    //- Nav Toggle Button
+    a.nav-toggle-btn(href="#")
+      span меню сайта
+      
+      button.hamburger.hamburger--squeeze(type="button")
+        span.hamburger-box
+          span.hamburger-inner
+        
+    //- Nav
+    include partials/nav
+      
+    //- Main
+    main.main
+      //- Header
+      include partials/header
+      
+      //- Top Section
+      section(class=sectionClass ? "top-section top-section_lg" : "top-section")
+        .container
+          //- Breadcrumbs
+          //-include partials/breadcrumbs
+          
+          h1.top-section__title !{h1}
+          p.top-section__sub-title !{subTitle}
+          
+          block topSectionContent
+      
+      //- Top Order Form
+      block topForm
+      
+      block content
+        
+      //- Footer
+      include partials/footer
+      
+    //- Scripts
+    include partials/scripts

@@ -1,0 +1,25 @@
+section.faq.section.list-section
+  .container
+    .sc
+      .sc__aside
+        h2.deco-line.deco-line_short.text-black.faq__title Частые вопросы
+        p Мы собрали для Вас ответы на самые популярные вопросы, которые чаще всего интересуют наших клиентов  и наши ответы, на них
+        
+        .email-block.email-block_dark
+          p 
+            | Если у вас возникли вопросы,
+            br
+            | отправьте письмо
+            br
+            | на info@marox.digital
+        
+      .sc__content
+        .faq-questions
+          div(id="faq-questions", role="tablist", aria-multiselectable="true")
+            each question in faq
+              .panel.faq-questions__item
+                .faq-questions__head
+                  a.faq-questions__link(role="button", data-toggle="collapse", data-parent="#faq-questions", href="#collapse-" + question.id, aria-expanded=question.opened ? "true" : "false", aria-controls="collapse-" + question.id) #{question.question}
+                
+                div(class=question.opened ? "faq-questions__body collapse in" : "faq-questions__body collapse", id="collapse-" + question.id, role="tabpanel")
+                  p #{question.answer}

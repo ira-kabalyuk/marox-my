@@ -1,0 +1,91 @@
+//== Typography
+//
+//##
+$font-size-base:   16px;
+$font-size-large:  ceil(($font-size-base * 1.125)); // ~18px
+$font-size-small:  ceil(($font-size-base * 0.75)); // ~12px
+
+$font-size-h1:     floor(($font-size-base * 4)); // ~64px
+$font-size-h2:     floor(($font-size-base * 4)); // ~64px
+$font-size-h3:     ceil(($font-size-base * 3)); // ~48px
+$font-size-h4:     ceil(($font-size-base * 2)); // ~32px
+$font-size-h5:     ceil(($font-size-base * 1.5));  // ~24px
+$font-size-h6:     $font-size-base;
+
+$line-height-base: 1.5; // 24/16
+
+$headings-font-weight: 300;
+$headings-line-height: 1.25;
+
+//== Grid system
+//
+//##
+$grid-gutter-width: 32px;
+
+//== Forms
+//
+//##
+$form-group-margin-bottom: 16px;
+
+
+//== Media queries breakpoints
+//
+//##
+// Extra small screen / phone
+$screen-xs: 641px;
+
+// Small screen / tablet
+$screen-sm: 1025px;
+
+// Medium screen / desktop
+$screen-md: 1441px;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg: 1681px;
+
+
+//== Container sizes
+//
+//##
+
+// Small screen / tablet
+$container-tablet:        (910px + $grid-gutter-width);
+
+// Medium screen / desktop
+$container-desktop:       (1280px + $grid-gutter-width);
+
+// Large screen / wide desktop
+$container-large-desktop: (1520px + $grid-gutter-width);
+
+
+//== Modals
+//
+//##
+
+//** Padding applied to the modal body
+$modal-inner-padding: 16px;
+
+//** Padding applied to the modal title
+$modal-title-padding: 16px;
+
+
+//== Alerts
+//
+//## Define alert colors, border radius, and padding.
+
+$alert-padding: 16px;
+
+//== Panels
+//
+//##
+
+$panel-body-padding:    16px;
+$panel-heading-padding: 8px 16px;
+
+
+//== Breadcrumbs
+//
+//##
+
+$breadcrumb-padding-horizontal: 16px;

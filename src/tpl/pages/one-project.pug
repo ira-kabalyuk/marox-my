@@ -1,0 +1,85 @@
+extends ../template.pug
+
+block title
+	- title = pages.oneProject.title
+	
+block breadcrumbs
+	- breadcrumbsCat = pages.oneProject.category
+	- breadcrumbsCurrent = pages.oneProject.title
+
+//- Top Section
+block sectionTitles
+	- h1           = pages.oneProject.h1
+	- subTitle     = pages.oneProject.subTitle
+	- sectionClass = pages.oneProject.form
+	
+block topSectionContent
+//- //Top Section
+
+block content
+	section.team-block.border-block_solid.border-block_no-bottom
+		.container
+			.infographic.project-infographic.text-center
+				p.infographic__text Компания «Хорошие колёса» обратилась в наше агентство летом 2015 года с задачей подготовить интернет-магазин к зимнему сезону. После тщательного анализа поисковых запросов и нашей работы значительно вырос органический трафик. Мы также успешно настроили контекстную рекламную кампанию и внедрили динамический коллтрекинг.
+				h3.text-gradient.text-black.infographic__title Увеличение трафика в 3 раза
+				p.infographic__sub +100500 пользователей за 47 минут
+
+				.infographic__graph.infographic__graph_project
+					canvas(id="graph")
+						
+					.infographic__dot.infographic__dot_2
+						span Начало продвижения
+						
+					.infographic__line
+
+	//- Seo Section
+	section.seo.seo_project-section.section_dark
+		.seo__project
+			.container.flex
+				each item in pages.oneProject.seo
+					div(class="seo__item " + item.class)
+						h3(class=item.titleClass ? "seo__title deco-line" : "seo__title") #{item.title}
+						span.seo__value.text-gradient !{item.val}
+						p.seo__p !{item.p}
+		//- /Seo Section
+	section.seo.seo_project-section
+		.container
+			h2.deco-line.text-black.text-dark Позиции в поисковых системах
+			.seo_project-wrap
+				ul.seo-table
+					li.seo-table__item.seo-table__head
+						.seo-table__wrap
+							.seo-table__img-wrap
+								img(src="img/google.png", alt="")
+					each li in pages.oneProject.seoTable
+						li.seo-table__item
+							.seo-table__item-block
+								.seo-table__wrap
+									p.seo-table__text #{li.p}
+								.seo-table__wrap
+									p.seo-table__text.text-gradient #{li.descr}
+					li.seo-table__item.seo-table__footer
+						.seo-table__wrap
+							p.seo-table__footer-text Данные актуальны на ноябрь 2015 года для региона: Санкт-Петербург
+				.seo-gradient-block
+					p.seo-gradient-block__text ещё 450 запросов в топ 10
+
+	section.seo.seo_project-section.border-block_solid
+		.container
+			h2.deco-line.text-black.text-dark Отзывы наших клиентов
+		.feedback__block.border-block
+			.container
+				.feedback__wrap
+					p.feedback__text Благодаря слаженной работе отдела контекстной  рекламы и SEO-отдела компании JustSEO нам удалось максимально отработать зимний сезон, даже при общем фоне спада продаж и высокой конкуренции на рынке автотоваров.
+					.feedback__name-block
+						.feedback__img-wrap
+							img(src="img/av-3.jpg", alt="")
+						.feedback__name-wrap
+							p.feedback__name Александр Берёзин
+							p.feedback__position СЕО
+
+	//- Increase Section
+	include ../sections/increase-section
+	//- /Increase Section
+	//- Contacts Section
+	include ../sections/contacts

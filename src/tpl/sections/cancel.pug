@@ -1,0 +1,12 @@
+section.cancel.section.section_dark
+  .container
+    .row
+      h2.text-black.text-white.deco-line Мы не сработаемся если
+      
+  .border-block.border-block_dark
+    .container
+      .row.flex
+        each item in pages.contextAd.cancel
+          .cancel__item
+            h4.cancel__item-title #{item.title}
+            p #{item.p}

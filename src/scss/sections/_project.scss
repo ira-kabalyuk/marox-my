@@ -1,0 +1,246 @@
+.project {
+  &-section {
+    padding-top: 96px;
+
+    &__footer {
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 120px;
+    }
+
+    &__lead {
+      font: {
+        family: $gilroy;
+        size: 40px;
+        weight: 900;
+      }
+      line-height: 48px;
+      margin-left: 64px;
+    }
+
+    .border-block {
+      padding: 80px 0;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+    }
+  }
+
+  &s {
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    &__row {
+     // width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      margin: 0 -8px 64px -8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &__item {
+      flex-grow: 0;
+      flex-basis: 25%;      
+      position: relative;
+      padding: 0 8px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      &::before {
+        content: '';
+        display: block;
+        width: calc(100% + 32px);
+        height: calc(100% + 32px);
+        background-color: rgba($blue, 0.63);
+        box-shadow: 0 0 18px rgba($black, .2);
+        position: absolute;
+        left: -16px;
+        top: -16px;
+        z-index: 2;
+        opacity: 0;
+        @include trans();
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &_grow {
+        flex-grow: 1;
+      }
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+        .projects__more {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      &-container {
+        width: 100%;
+        height: 288px;
+        background-color: #F5FAFC;
+        margin-bottom: 24px;
+        overflow: hidden;
+        position: relative;
+      }
+    }
+
+    &__descr {
+      margin-bottom: 8px;
+      height: 33px;
+      overflow: hidden;
+      font: {
+        family: $gilroy;
+        size: 16px;
+        weight: 300;
+      }
+      line-height: 1;
+    }
+
+    &__title {
+      font: {
+        size: 32px;
+        weight: 900;
+      }
+      line-height: 40px;
+      margin-bottom: 0;
+    }
+
+    &__more {
+      display: inline-block;
+      width: 100%;
+      max-width: 368px;
+      height: 72px;
+      background-color: $white;
+      font: {
+        family: $gilroy;
+        size: 24px;
+        weight: 900;
+      }
+      line-height: 72px;
+      text-align: center;
+      color: $black;
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -40%);
+      opacity: 0;
+      z-index: 3;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+// Media
+@media ($mw-1680) {
+  .project {
+    &-section {
+      &__lead {
+        margin-left: 0;
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
+  }
+}
+@media ($mw-1200) {
+  .project {
+    &-section {
+      &__footer {
+        flex-wrap: wrap;
+        margin-top: 0;
+      }
+      &__lead {
+        width: 100%;
+        margin-bottom: 32px;
+      }
+    }
+
+    &s {
+      &__row {        
+        margin-bottom: 0;
+        justify-content: space-between;
+      }
+      &__item {
+        margin-bottom: 64px;
+        margin-right: 0;
+        flex-grow: 0;
+        flex-basis: 49%;
+      }
+    }
+  }
+}
+
+@media ($mw-1024) {
+  .project {
+    &s {
+       &__row {
+        flex-wrap: wrap;
+       }
+    }
+  }
+}
+
+@media ($mw-768) {
+  .project {
+    &-section {
+      &__lead {
+        width: 100%;
+      }
+    }
+
+    &s {
+      &__item {
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        margin-bottom: 48px;
+        &:hover {
+          .projects__more {
+            transform: none;
+          }
+        }
+        &::before {
+          content: none;
+        }
+      }
+
+      &__title {
+        font-size: 24px;
+      }
+
+      &__more {
+        width: 100%;
+        max-width: 320px;
+        height: 56px;
+        line-height: 56px;
+        font-size: 18px;
+        margin-top: 16px;
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        opacity: 1;
+        background-color: $blue;
+        color: $white;
+        &:hover,
+        &:focus,
+        &:active {
+          color: $white;
+          background-color: $blue;
+        }
+      }
+    }
+  }
+}

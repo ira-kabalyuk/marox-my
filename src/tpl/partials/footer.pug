@@ -1,0 +1,12 @@
+footer.footer
+  .container.footer__container
+    a.footer__logo(href="#")
+      img.img-responsive(src="img/logo-footer.svg", alt="Marox Digital")
+    
+    nav.footer__nav
+      ul
+        each item in footer.nav
+          li
+            a(href="#" alt=`${item}`) #{item}
+            
+    p.footer__copy © 2008–2017 Marox

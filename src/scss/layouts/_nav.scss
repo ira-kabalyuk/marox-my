@@ -1,0 +1,258 @@
+.navigation {
+  width: 100%;
+  height: 100%;
+  padding-left: 112px;
+  background-color: $white;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 990;
+  transform: translateX(-100%);
+  @include trans;
+  &.is-opened {
+    transform: translateX(0);
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  &__header {
+    height: 120px;
+    position: relative;
+    border-color: rgba(#242A3C, .2);
+    border-width: 1px;
+    padding-left: 0;
+
+    .header__contacts {
+      a {
+        color: $black;
+      }
+    }
+  }
+
+  &__body {
+    padding: 56px 0;
+  }
+
+  &__title {
+    font: {
+      family: $gilroy;
+      size: 18px;
+      weight: 900;
+    }
+    line-height: 1;
+    color: #373F54;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    > li {
+      margin-bottom: 24px;
+
+      > a {
+        font: {
+          size: 24px;
+        }
+        line-height: 40px;
+        position: relative;
+        &::after {
+          content: '\f178';
+          display: inline-block;
+          font-family: $fa;
+          font-weight: 300;
+          opacity: 0;
+          transform: translateX(-5px);
+          @include trans;
+        }
+
+        &:hover,
+        &.is-active {
+          &::after {
+            color: $blue;
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      }
+
+      ul {
+        margin-top: 8px;
+        li {
+          margin-bottom: 8px;
+          a {
+            font-size: 16px;
+            line-height: 1;
+          }
+        }
+      }
+    }
+
+    a {
+      display: inline-block;
+      font: {
+        family: $gilroy;
+        weight: 900;
+      }
+      color: $black;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $blue;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__footer {
+    height: 120px;
+    border-top: 1px solid rgba(#242A3C, .2);
+
+    .container,
+    .row {
+      height: 100%;
+    }
+
+    > [class*='col-'] {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .contacts__socials {
+      height: 100%;
+      a {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  &__contacts {
+    align-items: center;
+  }
+}
+
+
+// Media
+@media ($mw-1440) {
+  .navigation {
+    &__body {
+      padding: 40px 0;
+    }
+
+    &__title {
+      margin-bottom: 24px;
+    }
+
+    &__list {
+      > li {
+        margin-bottom: 16px;
+        > a {
+          line-height: 32px;
+          font-size: 20px;
+        }
+        ul {
+          li {
+            line-height: 1;
+            a {
+              font-size: 14px;
+              line-height: 18px;
+            }
+          }
+        }
+      }
+    }
+
+    &__footer {
+      padding: 24px 0;
+      height: auto;
+
+      .contacts__socials {
+        a {
+          margin-right: 8px;
+          font-size: 16px;
+        }
+      }
+
+      .contacts__link {
+        font-size: 20px;
+      }
+    }
+  }
+}
+@media ($mw-1024) {
+  .navigation {
+    padding-left: 0;
+    &__header {
+      background-color: $white;
+      height: 80px;
+      padding-left: 80px;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    &__container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+    }
+    &__body,
+    &__footer {
+      padding-top: 112px;
+    }
+    &__footer {
+      width: 60%;
+      border-left: 1px solid $light-grey;
+      .row {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        height: auto;
+        > [class*='col-'] {
+          width: 100%;
+        }
+      }
+      .contacts__socials {
+        margin-bottom: 32px;
+        height: auto;
+        a {
+          margin-right: 16px;
+        }
+      }
+
+      .navigation__contacts {
+        > [class*='col-'] {
+          margin-bottom: 32px;
+        }
+      }
+    }
+  }
+}
+
+@media ($mw-768) {
+  .navigation {
+    &__container {
+      display: block;
+    }
+    &__header {
+      height: 56px;
+      padding-left: 56px;
+    }
+    &__body {
+      width: 100%;
+      padding-top: 80px;
+      padding-bottom: 16px;
+    }
+    &__footer {
+      padding-top: 40px;
+      width: 100%;
+      border-left: none;
+    }
+  }
+}

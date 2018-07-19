@@ -1,0 +1,3 @@
+@mixin trans($important: null, $value: all, $duration: 250ms, $easing: $tf) {
+  transition: $value $duration $easing $important;
+}

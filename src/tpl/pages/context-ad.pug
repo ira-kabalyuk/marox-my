@@ -1,0 +1,311 @@
+extends ../template
+
+block title
+	- title = pages.contextAd.title
+	
+block breadcrumbs
+	- breadcrumbsCat     = pages.contextAd.category
+	- breadcrumbsCurrent = pages.contextAd.title
+
+//- Top Section
+block sectionTitles
+	- h1           = pages.contextAd.h1
+	- subTitle     = pages.contextAd.subTitle
+	- sectionClass = pages.contextAd.form
+	
+block topSectionContent
+//- //Top Section
+
+block topForm
+	include ../sections/top-form
+				
+block content
+	//- Info Section
+	section.section.info-section
+		.container
+			h2.deco-line
+				| Контекстная реклама — 
+				span.text-black способ 
+				br
+				span.text-black быстро привести пользователей 
+				| на сайт
+				
+			p.info-section__p.text-black Гарантия попадания вашего сайта на первые страницы поисковых систем Google и Яндекс
+	//- /Info Section
+	
+
+	//- Benefits Section
+	section.benefits
+		.border-block.border-block_no-bottom
+			.container
+				.row.flex
+					each item in pages.contextAd.benefits
+						.col-sm-4.benefits__item
+							h3.benefits__title #{item.title}
+							p.benefits__content #{item.content}
+	//- /Benefits Section
+
+
+	//- Problems Section
+	section.problems.section.section_dark
+		.border-block.border-block_dark.list-section
+			.container
+				.row
+					.sc
+						.sc__aside
+							h3.deco-line.deco-line_short.text-white
+								span.text-black Проблемы, 
+								| которые  
+								br
+								| чаще всего 
+								span.text-black помогаем решать
+							
+						.sc__content
+							.flex
+								.col-lg-6.pl-0.pr-0
+									ol.o-list.o-list_lg
+										li Нужен, трафик, клиенты, заказы срочно. Еще вчера :)
+										li Нужен, трафик, клиенты, заказы срочно. Еще вчера :)
+										li Нужен, трафик, клиенты, заказы срочно. Еще вчера :)
+										
+								.col-lg-6.pl-0.pr-0
+									ol.o-list.o-list_lg.ci-3
+										li Нужен, трафик, клиенты, заказы срочно. Еще вчера :)
+										li Нужен, трафик, клиенты, заказы срочно. Еще вчера :)
+										li Нужен, трафик, клиенты, заказы срочно. Еще вчера :)
+		.border-block.border-block_dark.list-section
+			.container
+				.row
+					.why-we
+						h3.why-we__title.text-white
+							| Почему 
+							span.text-black заказывать контекстную рекламу 
+							| у нас 
+							span.text-black выгодно?
+							
+						.why-we__container.flex
+							each item in pages.contextAd.whyWe
+								.why-we__item
+									p.why-we__num #{item.num}
+									p.why-we__p #{item.p}
+						
+					.how-we-work
+						h3.text-white.text-black Как мы работаем?
+						
+						.how-we-work__container.flex
+							each item in pages.contextAd.howWeWork
+								.how-we-work__item
+									p.how-we-work__lead #{item.lead}
+									p.how-we-work__p #{item.p}
+	//- /Problems Section
+	
+	
+	//- Profit Section
+	section.profit.list-section
+		.border-block.profit__container
+			.container
+				.row
+					.sc
+						.sc__aside
+							h3.profit__title.deco-line.deco-line_short.text-black С нами реклама будет дешевле
+								
+							p.profit__p Вы не только получите больше потенциальных клиентов на ваш сайт. С нами выгоднее и дешевле. Вы не только получите больше потенциальных клиентов на свой сайт, но и снизите цену (стоимость клика) за их привлечение в 1-2 раза.
+							
+						.sc__content
+							.profit-table
+								.profit-table__caption
+									p Показатели кампании при разных способах ведения
+									
+								.profit-table__head
+									.profit-table__row
+										.profit-table__left
+											
+										ul.profit-table__right
+											li.profit-table__col.active
+												a(href="#tab1" data-toggle="tab") у самостоятельных клиентов
+
+											li.profit-table__col
+												a(href="#tab2" data-toggle="tab") у клиентов Marox
+
+								.profit-table__body.fade.in.active(id="tab1")
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Бюджет на рекламу
+
+										.profit-table__right
+											.profit-table__col.profit-table__col_dark
+												p 29 000
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Процент конверсии
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_dark
+												p 6%
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Средний чек
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_dark
+												p 1280
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Стоимость клика
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_light
+												p 11
+												
+											.profit-table__col.profit-table__col_dark
+												p 6
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Количество заказов
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_light
+												p 158
+												
+											.profit-table__col.profit-table__col_dark
+												p
+													| 290
+													sup.text-gradient +132
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Выручка
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_light
+												p 202 240
+												
+											.profit-table__col.profit-table__col_dark
+												p
+													| 371 200
+													sup.text-gradient +168 960
+								
+								.profit-table__body.fade(id="tab2")
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Бюджет на рекламу
+
+										.profit-table__right
+											.profit-table__col.profit-table__col_dark
+												p 39 000
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Процент конверсии
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_dark
+												p 6%
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Средний чек
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_dark
+												p 1280
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Стоимость клика
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_light
+												p 11
+												
+											.profit-table__col.profit-table__col_dark
+												p 6
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Количество заказов
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_light
+												p 158
+												
+											.profit-table__col.profit-table__col_dark
+												p
+													| 290
+													sup.text-gradient +132
+												
+									.profit-table__row
+										.profit-table__left
+											.profit-table__col
+												p Выручка
+											
+										.profit-table__right
+											.profit-table__col.profit-table__col_light
+												p 202 240
+												
+											.profit-table__col.profit-table__col_dark
+												p
+													| 371 200
+													sup.text-gradient +168 960
+
+					.infographic.text-center
+						h3.text-gradient.text-black.infographic__title До 30% больше дохода уже в течениии нескольких дней
+						p.infographic__sub Рост количества заказов компании после запуска рекламной кампании
+						
+						.infographic__graph
+							canvas(id="graph")
+								
+							.infographic__dot.infographic__dot_1
+								span День оформления заказа
+								
+							.infographic__dot.infographic__dot_2
+								span Старт кампании
+								
+							.infographic__dot.infographic__dot_3
+								span Выходные
+							
+							
+						p.infographic__small хотите узнать и другие способы повысить доход?
+						
+						a.btn.btn_icon.infographic__btn(href="#") Отправить заявку
+					
+	//- /Profit Section
+	
+	
+	//- Rate section
+	include ../sections/rate-tabs
+	//- /Rate section
+	
+
+	//- Increase Section
+	include ../sections/increase-section
+	//- /Increase Section
+	
+	
+	//- FAQ Section
+	include ../sections/faq
+	//- /FAQ Section
+	
+	
+	//- Cancel Section
+	include ../sections/cancel
+	//- /Cancel Section
+
+
+	//- Contacts Section
+	include ../sections/contacts

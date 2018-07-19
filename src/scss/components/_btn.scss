@@ -1,0 +1,76 @@
+.btn {
+  min-width: 280px;
+  padding: 16px 32px;
+  border-radius: 0;
+  outline: none;
+  background-color: $yellow;
+  font: {
+    family: $gilroy;
+    size: 24px;
+    weight: 900;
+  }
+  color: $black;
+  position: relative;
+  @include trans;
+
+  &:hover {
+    color: $black;
+    background-color: darken($yellow, 5%);
+  }
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+    background: {
+      color: darken($yellow, 5%);
+    }
+  }
+
+  &_icon {
+    min-width: 368px;
+    background: {
+      image: url(../img/plane.svg);
+      repeat: no-repeat;
+      position: left 64px center;
+      size: 40px 100%;
+    }
+
+    &:focus,
+    &:active {
+      background: {
+        image: url(../img/plane.svg);
+      }
+    }
+  }
+
+  &_wide {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+// Media
+@media ($mw-1680) {
+  .btn {
+    font-size: 20px;
+
+    &_icon {
+      min-width: 290px;
+      background-size: 32px 100%;
+      background-position: left 48px center;
+    }
+  }
+}
+@media ($mw-768) {
+  .btn {
+    font-size: 18px;
+
+    &_icon {
+      width: 100%;
+      min-width: auto;
+      max-width: 290px;
+      background-size: 24px 100%;
+      background-position: left 40px center;
+    }
+  }
+}

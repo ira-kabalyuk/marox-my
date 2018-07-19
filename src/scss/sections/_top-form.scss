@@ -1,0 +1,33 @@
+.top-form {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px dashed $light-grey;
+  background-color: $white;
+
+  .form-section {
+    margin-top: -288px;
+  }
+}
+
+// Media
+@media ($mw-1440) {
+  .top-form  {
+    .form-section {
+      margin-top: -160px;
+    }
+  }
+}
+@media ($mw-1024) {
+  .top-form  {
+    .form-section {
+      margin-top: -80px;
+    }
+  }
+}
+@media ($mw-768) {
+  .top-form  {
+    .form-section {
+      margin-top: -40px;
+    }
+  }
+}

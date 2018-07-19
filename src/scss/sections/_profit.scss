@@ -1,0 +1,76 @@
+.profit {
+  padding: 152px 0 0;  
+
+  &__container {
+    padding: 96px 0;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__p {
+    font: {
+      family: $gilroy;
+      size: 18px;
+      weight: 300;
+    }
+    line-height: 32px;
+    max-width: 272px;
+  }
+
+  .sc {   
+    justify-content: space-between;
+     border-left: none;
+    border-right: none;
+
+    &__content {
+      max-width: 944px;
+    }
+
+    &__aside {
+      padding: 0 64px;;
+    }
+  }
+}
+
+
+// Media
+@media ($mw-1440) {
+  .profit {
+    padding-top: 120px;
+
+    &__container {
+      padding-top: 80px;
+    }
+
+    &__p {
+      max-width: 100%;
+    }
+
+    .profit-table {
+      margin-top: 64px;
+    }
+  }
+}
+@media ($mw-1024) {
+  .profit {
+    padding-top: 80px;
+
+    &__container {
+      padding-top: 40px;
+      padding-bottom: 80px;
+    }
+
+    .profit-table {
+      margin-top: 48px;
+    }
+  }
+}
+@media ($mw-768) {
+  .profit {
+    &__p {
+      font-size: 16px;
+    }
+  }
+}

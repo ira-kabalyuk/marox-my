@@ -1,0 +1,160 @@
+extends ../template.pug
+
+block title
+	- title = pages.main.title
+	
+block breadcrumbs
+	- breadcrumbsCat = pages.main.category
+	- breadcrumbsCurrent = pages.main.title
+
+//- Top Section
+block sectionTitles
+	- h1           = pages.main.h1
+	- subTitle     = pages.main.subTitle
+	- sectionClass = pages.main.form
+	
+block topSectionContent
+
+	.container
+		.row
+			ul.strategy__list
+				each item in pages.main.stList
+					li.strategy__item #{item.p}
+			.topSection__descr
+				p.text-white Разрабатываем бизнес-сайты и продающие страницы, обеспечиваем их поддержку и развитие. Привлекаем клиентов с помощью seo, контекста и социальных сетей. Работаем на удержание и возврат клиентов 
+				p.text-black.text-gradient Качественно. Без сказочных гарантий и космических обещаний
+			ul.top-section__list.main-top-section__list
+				li.top-section__item
+					button.btn.btn_icon.form-group__btn Отправить заявку
+				li.top-section__item.top-section__item_1
+					.top-section-list__text-wrap
+						a(href="").top-section-list__title.text-black.text-gradient Реализованные проекты
+						p.top-section-list__text Посмотрите наши кейсы
+
+block content
+	section.border-block_solid.work-block.section_middle
+		.container
+			h2.deco-line.deco-line_short.text-black Как мы работаем
+		.work-block-wrap
+			.container
+				ul.two-column__list
+					li.two-column__item
+						p.two-column__p
+							span.text-black Никому не нужен сайт или реклама.
+							| Внедряя инструменты мы думаем в первую очередь о том, как это отразится на результате. Мы ориентированы на малый и средний бизнес,
+							span.text-black которому нужен не «дикий креатив», а рабочий инструмент 
+							|	стимулирования продаж и увеличение прибыли.
+					li.two-column__item
+						p.text-40.text-black За 9 лет работы мы сформировали набор четких инструментов, внедрив которые вы получите увеличение прибыли:
+			.work__block.work__block_1
+				.container
+						ul.work__list
+							each item in pages.main.wkListOne
+								li.work__item #{item.li}
+			.work__block.work__block_2
+				.container
+						ul.work__list
+							each item in pages.main.wkListTwo
+								li.work__item #{item.li}
+			.work__block.work__block_3
+				.container
+						ul.work__list
+							each item in pages.main.wkListThree
+								li.work__item #{item.li}
+
+		section.section_middle.section_dark
+			.container
+				p.text-40.text-gradient.text-black Если мы беремся за проект, поднимаем продажи от 20% до 300% и более.
+
+		section.work-section
+			.container
+				ul.three-column__list
+					each item in pages.main.work
+						li(class="three-column__item " + item.class)
+							p.title.text-black #{item.title}
+							a(href="").title-link подробнее про услугу
+								i.fa.fa-long-arrow-right
+							ul.three-column__inside-list
+								each wl in item.wl
+									li.three-column__inside-item 
+										a.three-column__inside-link(href="") !{wl}
+											i.fa.fa-angle-double-right
+
+	section.section.section_dark.why-section
+		.border-block.border-block_dark
+			.container
+				.dev-list-block.why-list-block
+					.sc.sc-top
+						.sc__content.sc-top__content
+							ol.o-list.o-list_lg
+								li
+									h3.deco-line.deco-line_short.text-white.text-black Почему
+										br
+										| MAROX
+								each item in pages.main.num
+									li(class="text-black " + item.class)
+										.how-we-work__item
+											p.how-we-work__title #{item.title}
+											p.how-we-work__lead #{item.p}
+	
+	section.section.main-blog-section
+		.container
+			.main-blog-section
+				h2.deco-line.deco-line_short.text-black Наш блог
+				.main-blog-wrap
+					p.text-black.text-20 Мы с удовольствием делимся своим опытом в интернет-маркетинге и рассказываем об эффективных инструментах и интересных кейсах в своем блоге. Читайте, анализируйте и действуйте! 
+					ul.blog-list-sm
+						each item in pages.blog.smBlogItem
+							li.blog-list-sm__item
+								a(href="")
+									.blog-list-sm__img-wrap
+										img(src=`${item.img}`,alt="")
+									.blog-list-sm__content-wrap
+										h5.blog-list-sm__title #{item.title}
+										.info-block
+											.info-block__item
+												i.fa.fa-calendar
+												span.info-block__value #{item.data}
+
+											.info-block__item
+												i.fa.fa-eye
+												span.info-block__value #{item.views}
+
+											.info-block__item
+												i.fa.fa-comments-o
+												span.info-block__value #{item.comments}
+					a(href="/blog.html").blog-link
+						span.menu-icon-wrap
+							span.menu-icon
+						span.blog-link__text Все статьи
+
+					.main-form-section
+						h4.blog-title Подписаться на обновления
+						p.sidebar-section__text Вы будете получать подборку полезных статей о продвижении бизнеса, а также проверенные фишки маркетинга и скидки на отраслевые мероприятия
+						form.sidebar-form
+							.sidebar-form-group
+								span.input.input--hoshi
+									input.input__field.input__field--hoshi(type="text" id="input-1")
+									label.input__label.input__label--hoshi.input__label--hoshi-color-1(for="input-1")
+										i.fa.fa-user
+										span.input__label-content.input__label-content--hoshi Как Вас зовут?
+							.sidebar-form-group
+								span.input.input--hoshi
+									input.input__field.input__field--hoshi(type="text" id="input-2")
+									label.input__label.input__label--hoshi.input__label--hoshi-color-1(for="input-2")
+										i.fa.fa-envelope-o
+										span.input__label-content.input__label-content--hoshi Ваш e-mail
+							.sidebar-form-group.sidebar-button-group
+								button.btn.sidebar-form__btn Подписаться
+								p.sidebar-form__text уже подписались 1890 человек
+
+	//- Increase Section
+	include ../sections/increase-section
+	//- /Increase Section
+
+	//- Contacts Section
+	include ../sections/contacts
+
+	include ../partials/form-popup
+
+	

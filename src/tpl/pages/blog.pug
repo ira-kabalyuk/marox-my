@@ -1,0 +1,64 @@
+extends ../template.pug
+
+block title
+	- title = pages.blog.title
+	
+block breadcrumbs
+	- breadcrumbsCat = pages.blog.category
+	- breadcrumbsCurrent = pages.blog.title
+
+//- Top Section
+block sectionTitles
+	- h1           = pages.blog.h1
+	- subTitle     = pages.blog.subTitle
+	- sectionClass = pages.blog.form
+	
+block topSectionContent
+//- //Top Section
+
+block content
+
+	.container
+		.row
+			.blog
+				p.blog-section__title.left-section__title Новые публикации
+
+				ul.blog-list
+					each item in pages.blog.blogItem
+						li.blog-item
+							.blog-item__img-wrap
+								img(src=`${item.img}`, alt="")
+
+							.blog-item__content
+								h4.blog-title
+									a(href="") #{item.title}
+								.tags-block
+									each cat in item.cat
+										a.tag(href="") #{cat}
+								.info-wrap
+									.user-block
+										.user-block__item.clearfix
+											.user-block__img-wrap
+												img(src="img/blog-img-1.jpg", alt="")
+											p.user-block__name !{item.autor}
+
+									.info-block
+										.info-block__item
+											i.fa.fa-calendar
+											span.info-block__value #{item.data}
+
+										.info-block__item
+											i.fa.fa-eye
+											span.info-block__value #{item.views}
+			include ../partials/blog-sidebar
+
+
+	include ../partials/paging
+
+	//- Increase Section
+	include ../sections/increase-section
+	//- /Increase Section
+
+	//- Contacts Section
+	include ../sections/contacts
+

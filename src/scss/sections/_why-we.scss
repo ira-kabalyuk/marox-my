@@ -1,0 +1,72 @@
+.why-we {
+  margin-top: 48px;
+  margin-bottom: 96px;
+  padding: 96px 64px 104px;
+  @include gradient($blue, $green, 0%, 100%, 135deg);
+
+  &__container {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 72px;
+  }
+
+  &__item {
+    min-width: 325px;
+  }
+
+  &__num {
+    font: {
+      family: $gilroy;
+      size: 96px;
+      weight: 900;
+    }
+    line-height: 1;
+    color: $white;
+  }
+
+  &__p {
+    font-size: 18px;
+    color: $white;
+    margin-bottom: 0;
+  }
+}
+
+@media ($mw-1440) {
+  .why-we {
+    padding: 64px 32px;
+
+    &__container {
+      margin-top: 48px;
+    }
+
+    &__item {
+      min-width: 220px;
+    }
+
+    &__num {
+      font-size: 64px;
+    }
+  }
+}
+@media ($mw-1024) {
+  .why-we {
+    margin-top: 80px;
+    margin-bottom: 72px;
+
+    &__item {
+      min-width: auto;
+      width: 33%;
+    }
+
+    &__num {
+      font-size: 56px;
+    }
+  }
+}
+@media ($mw-768) {
+  .why-we {
+    &__item {
+      margin-bottom: 32px;
+    }
+  }
+}

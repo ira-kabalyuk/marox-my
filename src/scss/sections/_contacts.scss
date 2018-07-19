@@ -1,0 +1,146 @@
+.contacts {
+  padding-bottom: 0;
+
+  &__row {
+    padding: 48px 0;
+    border-top: 1px solid $light-grey;
+  }
+
+  &__label {
+    font: {
+      family: $gilroy;
+      size: 24px;
+      weight: 900;
+    }
+    line-height: 32px;
+    margin-bottom: 0;
+  }
+
+  &__text {
+    font: {
+      family: $gilroy;
+      size: 18px;
+      weight: 900;
+    }
+    line-height: 32px;
+    margin-bottom: 0;
+    color: $dark-blue;
+  }
+
+  &__link {
+    @extend .contacts__label;
+    color: $blue;
+    white-space: nowrap;
+
+    &_send {
+      display: inline-block;
+      line-height: 36px;
+      svg {
+        display: inline-block;
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+        fill: $blue;
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    a {
+      @extend .contacts__text;
+      margin-right: 72px;
+
+      i {
+        display: inline-block;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.contacts-label-wrap {
+  width: 40%;
+  float: left;
+}
+
+.contacts-content-wrap {
+  width: 60%;
+  float: left
+}
+
+// Media
+@media ($mw-1024) {
+  .contacts {
+    &__row {
+      padding: 32px 0;
+    }
+    &__label {
+      margin-bottom: 16px;
+    }
+  }
+}
+@media ($mw-768) {
+  .contacts {
+    &__row {
+      padding: 24px 0;
+    }
+    &__label {
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 8px;
+    }
+    &__link {
+      margin-bottom: 0;
+      font-size: 18px;
+      &_send {
+        svg {
+          width: 32px;
+          margin-right: 8px;
+        }
+      }
+    }
+    &__socials {
+      a {
+        margin-right: 32px;
+      }
+    }
+    &__content {
+      .col-xs-6 {
+        width: 100%;
+        margin-bottom: 8px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    &__text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  .contacts-label-wrap {
+  width: 100%;
+  }
+
+.contacts-content-wrap {
+  width: 100%;
+  }
+
+}
+@media ($mw-480) {
+  .contacts {
+    &__socials {
+      a {
+        margin-right: 12px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+section.increase.section.section_light
+  .container
+    h2.increase__title.text-black.text-dark.deco-line Хотите увеличить свою прибыль с сайта?
+    p.increase__sub-title.text-dark Заполните форму ниже, отправьте заявку и мы сможем предложить вам способ повысить доход с сайта
+    
+    .sc.form-section
+      .sc__aside.form-section__dark-descr
+        h3.form-section__title Оставьте заявку
+        
+        .email-block
+          p или отправьте письмо 
+            br
+            | на info@marox.digital
+        
+      .sc__content.form-section__content
+        form(id="", method="", action="")
+          each item in increase
+            .form-group.form-group_inline
+              label.form-group__label #{item.label}
+              div(class=item.isError ? 'form-group__input input-group input-group_error' : 'form-group__input input-group')
+                input(type=`${item.inputType}`, name="")
+                if item.isError
+                  span.input-group__error #{item.error}
+                else
+                  span(class="input-group__error hidden") #{item.error}
+                
+          button.btn.btn_icon.form-group__btn Отправить
